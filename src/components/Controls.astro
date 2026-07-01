@@ -25,7 +25,10 @@
     parent?.addEventListener('click', (e) => {
         const chords = getChordText()
         const target = e.target as HTMLElement;
-        const button: HTMLButtonElement = target.closest('[data-action]')!
+        const button = target.closest('[data-action]')
+
+        if (!button) return
+
         if (button.dataset.action === 'plus') {
             const transposed = transpose(chords).up(1)
             count = (count + 1) % MUSICAL_TONES
