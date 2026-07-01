@@ -1,0 +1,23 @@
+---
+interface Song {
+    artist: string
+    title: string
+    id: string
+}
+
+interface Props {
+    songs: Array<Song>
+}
+
+const {songs} = Astro.props
+---
+
+<p></p>
+<ul>
+    {songs.map(({title, artist, id}) => (
+            <a class="block" href={id}>
+                <p class="text-lg">{title}</p>
+                <p class="text-xs">{artist}</p>
+            </a>
+    ))}
+</ul>

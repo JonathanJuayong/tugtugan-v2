@@ -1,0 +1,43 @@
+<div class="flex controls">
+    <div class="flex gap-3">
+        <p>Transpose</p>
+        <div class="flex gap-1.5">
+            <button data-action="minus">-</button>
+            <p class="counter">0</p>
+            <button data-action="plus">+</button>
+        </div>
+    </div>
+    <button class="ml-auto">
+        Auto-scroll >
+    </button>
+</div>
+
+<script>
+    import {$chordText, getChordText, setChordText} from "../store.ts";
+    import {transpose} from 'chord-transposer';
+
+    const parent = document.querySelector('.controls')!;
+    const counter = document.querySelector('.counter')! as HTMLElement;
+    const MUSICAL_TONES = 12
+    let count = 0
+
+
+    parent?.addEventListener('click', (e) => {
+        const chords = getChordText()
+        const target = e.target as HTMLElement;
+        const button: HTMLButtonElement = target.closest('[data-action]')!
+        if (button.dataset.action === 'plus') {
+            const transposed = transpose(chords).up(1)
+            count = (count + 1) % MUSICAL_TONES
+            setChordText(transposed.toString())
+        } else if(button.dataset.action === 'minus') {
+            const transposed = transpose(chords).down(1)
+            count = (count - 1) % MUSICAL_TONES
+            setChordText(transposed.toString())
+        }
+
+        counter.textContent = count.toString()
+    });
+
+
+</script>

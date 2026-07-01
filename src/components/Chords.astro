@@ -1,0 +1,24 @@
+---
+import Controls from "./Controls.astro";
+interface Props {
+    chords: string
+}
+
+const {chords} = Astro.props
+---
+<Controls />
+<pre data-chords={chords} class="text-xs w-fit max-w-full overflow-x-auto">
+</pre>
+
+<script>
+    import {setChordText, getChordText, subscribeToChordText} from "../store.ts";
+
+    const pre = document.querySelector('pre')!
+    const chords = pre.getAttribute('data-chords')!
+
+    setChordText(chords)
+
+    subscribeToChordText(() => {
+        pre.innerText = getChordText()
+    })
+</script>

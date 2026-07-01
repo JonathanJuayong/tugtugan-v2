@@ -1,0 +1,70 @@
+---
+import {getCollection} from "astro:content";
+import {getChords, getRandomSongs, getUrlFromIframe, getYoutubeEmbed} from "../../utils/songs.ts";
+import YoutubeEmbed from "../../components/YoutubeEmbed.astro";
+import Chords from "../../components/Chords.astro";
+import SuggestedSongs from "../../components/SuggestedSongs.astro";
+import Body from "../../layouts/Body.astro";
+
+export async function getStaticPaths() {
+    const songs = await getCollection('songs');
+    return songs.map((song) => ({
+        params: {id: song.id},
+        props: {song, songs}
+    }))
+}
+
+const {song, songs} = Astro.props
+
+const {body} = song
+const youtubeIframe = getYoutubeEmbed(body!)!
+const youtubeUrl = getUrlFromIframe(youtubeIframe)!
+const chords = getChords(body!)!
+
+const numberOfRandomSongs = 5;
+const randomSongs = getRandomSongs(numberOfRandomSongs, songs)
+const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
+    id,
+    title,
+    artist,
+}))
+---
+<Body title={song.data.title}>
+    <main class="container">
+        <section class="video">
+            <YoutubeEmbed url={youtubeUrl}/>
+            <h2>{song.data.title}</h2>
+            <p>{song.data.artist}</p>
+        </section>
+        <div class="chords">
+            <Chords {chords}/>
+        </div>
+        <aside class="suggested">
+            <SuggestedSongs songs={otherSongs} />
+        </aside>
+    </main>
+</Body>
+
+<style>
+    main {
+        display: grid;
+        gap: 2rem;
+        padding-inline: 1rem;
+    }
+
+
+    @media (min-width: 900px) {
+        main {
+            grid-template-columns: 50% 1fr;
+            grid-template-rows: auto 1fr;
+        }
+
+        .chords {
+            grid-row: span 2;
+            height: 100vh;
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+        }
+    }
+</style>
