@@ -1,15 +1,16 @@
 import {atom} from "nanostores";
+import {Song} from "chordsheetjs";
 
-export const $chordText = atom("")
+export const $chordText = atom<Song | null>(null)
 
-export function setChordText(text: string) {
-    $chordText.set(text)
+export function setSong(song: Song) {
+    $chordText.set(song)
 }
 
-export function getChordText() {
+export function getSong() {
     return $chordText.get()
 }
 
-export function subscribeToChordText(callback: (newValue: string, oldValue?: string | undefined) => void) {
+export function subscribeToSong(callback: (newValue: Readonly<Song> | null, oldValue?: Readonly<Song> | null | undefined) => void) {
     $chordText.subscribe(callback)
 }
