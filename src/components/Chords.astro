@@ -1,24 +1,64 @@
 ---
 import Controls from "./Controls.astro";
+import {
+    UltimateGuitarParser,
+    ChordSheetSerializer
+} from "chordsheetjs";
+
 interface Props {
     chords: string
 }
 
 const {chords} = Astro.props
+
+const parser = new UltimateGuitarParser()
+const song = parser.parse(chords)
+const serializer = new ChordSheetSerializer()
+const serialized = serializer.serialize(song)
+const stringSerial = JSON.stringify(serialized)
+
 ---
-<Controls />
-<pre data-chords={chords} class="text-xs w-fit max-w-full overflow-x-auto">
-</pre>
+<Controls/>
+<div data-song={stringSerial} class="songsheet">
+</div>
 
 <script>
-    import {setChordText, getChordText, subscribeToChordText} from "../store.ts";
+    import {ChordLyricsPair, ChordSheetSerializer, type SerializedSong} from "chordsheetjs";
+    import {subscribeToSong, setSong, getSong} from "../store.ts";
 
-    const pre = document.querySelector('pre')!
-    const chords = pre.getAttribute('data-chords')!
+    const container = document.querySelector(".songsheet") as HTMLDivElement;
+    const song = container.getAttribute("data-song")!
+    const serialized = JSON.parse(song) as SerializedSong
 
-    setChordText(chords)
+    const serializer = new ChordSheetSerializer()
+    const deserializedSong = serializer.deserialize(serialized)
+    setSong(deserializedSong)
 
-    subscribeToChordText(() => {
-        pre.innerText = getChordText()
+    subscribeToSong((newValue, _) => {
+        console.log(newValue)
+        const chordLyricLines = newValue?.bodyLines.map((line, i) => {
+            const lines = line.items.map((item, j) => {
+                if (item instanceof ChordLyricsPair) {
+                    const chords = `<span class="pair-${i}-${j} group-hover:bg-amber-400">${item.chords}</span>`
+                    const lyrics = `<span class="pair-${i}-${j} group-hover:bg-amber-400">${item.lyrics}</span>`
+
+                    if (item.chords.trim() === "") {
+                        return `<div class="group grid content-end whitespace-nowrap">${chords}${lyrics}</div>`
+                    }
+
+                    if (!item.lyrics) {
+                        return `<div data-chord="${item.chords}" class="group grid content-start whitespace-nowrap">${chords}${lyrics}</div>`
+                    }
+
+                    return `<div data-chord="${item.chords}" class="group grid whitespace-nowrap">${chords}${lyrics}</div>`
+                }
+            })
+            return `
+            <pre class="section-${i} flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
+                ${lines.join("")}
+            </pre>
+            `
+        }).join("")
+        container.innerHTML = chordLyricLines!.toString()
     })
 </script>
