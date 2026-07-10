@@ -42,6 +42,7 @@ const stringSerial = JSON.stringify(serialized)
                     const chords = `<span class="pair-${i}-${j} group-hover:bg-amber-400">${item.chords}</span>`
                     const lyrics = `<span class="pair-${i}-${j} group-hover:bg-amber-400">${item.lyrics}</span>`
 
+                    // ensure alignment of chords and lyrics in case either are absent
                     if (item.chords.trim() === "") {
                         return `<div class="group grid content-end whitespace-nowrap">${chords}${lyrics}</div>`
                     }
