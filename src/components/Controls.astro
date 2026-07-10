@@ -13,8 +13,7 @@
 </div>
 
 <script>
-    import {getChordText, setChordText} from "../store.ts";
-    import {transpose} from 'chord-transposer';
+    import {getSong, setSong} from "../store.ts";
 
     const parent = document.querySelector('.controls')!;
     const counter = document.querySelector('.counter')! as HTMLElement;
@@ -23,20 +22,20 @@
 
 
     parent?.addEventListener('click', (e) => {
-        const chords = getChordText()
+        const song = getSong()
         const target = e.target as HTMLElement;
         const button = target.closest('[data-action]') as HTMLButtonElement
 
         if (!button) return
 
         if (button.dataset.action === 'plus') {
-            const transposed = transpose(chords).up(1)
+            const transposed = song?.transposeUp()!
             count = (count + 1) % MUSICAL_TONES
-            setChordText(transposed.toString())
+            setSong(transposed)
         } else if(button.dataset.action === 'minus') {
-            const transposed = transpose(chords).down(1)
+            const transposed = song?.transposeDown()!
             count = (count - 1) % MUSICAL_TONES
-            setChordText(transposed.toString())
+            setSong(transposed)
         }
 
         counter.textContent = count.toString()
