@@ -14,9 +14,9 @@ importers:
       astro:
         specifier: ^7.0.2
         version: 7.0.2(@emnapi/core@1.11.1)(@emnapi/runtime@1.11.1)(jiti@2.7.0)
-      chord-transposer:
-        specifier: ^3.0.9
-        version: 3.0.9
+      chordsheetjs:
+        specifier: ^15.5.2
+        version: 15.5.2
       nanostores:
         specifier: ^1.4.0
         version: 1.4.0
@@ -116,10 +116,6 @@ packages:
     resolution: {integrity: sha512-hnORnjP/1P/zFEndoeX+n+t1RwWRJiJpM/jO7FW32Kn9r5+sJB2JWOdYo4L6k78j15eCwY3Gm/7364B1EMwtNg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
-
-  '@babel/runtime-corejs3@7.29.7':
-    resolution: {integrity: sha512-ppj9ouYku+RX0ljtgZd+KMO5mkM2bCqg8H2PYAFWnLsHEIKIdRojqbJ2i3eVHrisuxy7nOFCmngTDdWtUCdXUQ==}
-    engines: {node: '>=6.9.0'}
 
   '@babel/types@7.29.7':
     resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
@@ -836,8 +832,14 @@ packages:
     resolution: {integrity: sha512-TQMmc3w+5AxjpL8iIiwebF73dRDF4fBIieAqGn9RGCWaEVwQ6Fb2cGe31Yns0RRIzii5goJ1Y7xbMwo1TxMplw==}
     engines: {node: '>= 20.19.0'}
 
-  chord-transposer@3.0.9:
-    resolution: {integrity: sha512-k16+e1LQyQjTk9jDQw8G3X9FAvUlgNWtpws9dZuw4KXiKQZYtpyCzxJkneaBETg3LcNgLctHWFbi/vlSlMNzow==}
+  chordsheetjs@15.5.2:
+    resolution: {integrity: sha512-ckM85eD5uRT9lWMQUfQpWFSCU5ZbwP3ROGpLvgFEzalHd08gjPhoe4wPHo2okjFeRF4rMJI29YY3tBuZGlw33A==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      jspdf: ^4.0.0
+    peerDependenciesMeta:
+      jspdf:
+        optional: true
 
   ci-info@4.4.0:
     resolution: {integrity: sha512-77PSwercCZU2Fc4sX94eF8k8Pxte6JAwL4/ICZLFjJLqegs7kCuAsqqj/70NQF6TvDpgFjkubQB2FW2ZZddvQg==}
@@ -864,9 +866,6 @@ packages:
   cookie@1.1.1:
     resolution: {integrity: sha512-ei8Aos7ja0weRpFzJnEA9UHJ/7XQmqglbRwnf2ATjcB9Wq874VKH9kfjjirM6UhU2/E5fFYadylyhFldcqSidQ==}
     engines: {node: '>=18'}
-
-  core-js-pure@3.49.0:
-    resolution: {integrity: sha512-XM4RFka59xATyJv/cS3O3Kml72hQXUeGRuuTmMYFxwzc9/7C8OYTaIR/Ji+Yt8DXzsFLNhat15cE/JP15HrCgw==}
 
   crossws@0.3.5:
     resolution: {integrity: sha512-ojKiDvcmByhwa8YYqbQI/hg7MEU0NC03+pSdEq4ZUnZR9xXpwk7E43SMNGkn+JxJGPFtNvQ48+vV2p+P1ml5PA==}
@@ -1381,10 +1380,6 @@ packages:
   trough@2.2.0:
     resolution: {integrity: sha512-tmMpK00BjZiUyVyvrBK7knerNgmgvcV/KLVyuma/SC+TQN167GrMRciANTz09+k3zW8L8t60jWO1GpfkZdjTaw==}
 
-  ts-enums@0.0.6:
-    resolution: {integrity: sha512-eVQQKCwUmGji5KLKfcPm0IZmLRt7xJnOWwO18Om/Weort2T3ANUoArWxpWuLT8AhKK4sAwy0qru3spZj9kCJTA==}
-    engines: {node: '>=6.0.0'}
-
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
@@ -1547,9 +1542,6 @@ packages:
     resolution: {integrity: sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA==}
     engines: {node: '>=4'}
 
-  xregexp@4.4.1:
-    resolution: {integrity: sha512-2u9HwfadaJaY9zHtRRnH6BY6CQVNQKkYm3oLtC9gJXXzfsbACg5X5e4EZZGVAH+YIfa+QA9lsFQTTe3HURF3ag==}
-
   xxhash-wasm@1.1.0:
     resolution: {integrity: sha512-147y/6YNh+tlp6nd/2pWq38i9h6mz/EuQ6njIrmW8D1BS5nCqs0P6DG+m6zTGnNz5I+uhZ0SHxBs9BsPrwcKDA==}
 
@@ -1660,10 +1652,6 @@ snapshots:
   '@babel/parser@7.29.7':
     dependencies:
       '@babel/types': 7.29.7
-
-  '@babel/runtime-corejs3@7.29.7':
-    dependencies:
-      core-js-pure: 3.49.0
 
   '@babel/types@7.29.7':
     dependencies:
@@ -2254,10 +2242,7 @@ snapshots:
     dependencies:
       readdirp: 5.0.0
 
-  chord-transposer@3.0.9:
-    dependencies:
-      ts-enums: 0.0.6
-      xregexp: 4.4.1
+  chordsheetjs@15.5.2: {}
 
   ci-info@4.4.0: {}
 
@@ -2272,8 +2257,6 @@ snapshots:
   cookie-es@1.2.3: {}
 
   cookie@1.1.1: {}
-
-  core-js-pure@3.49.0: {}
 
   crossws@0.3.5:
     dependencies:
@@ -2851,8 +2834,6 @@ snapshots:
 
   trough@2.2.0: {}
 
-  ts-enums@0.0.6: {}
-
   tslib@2.8.1:
     optional: true
 
@@ -2946,10 +2927,6 @@ snapshots:
   web-namespaces@2.0.1: {}
 
   which-pm-runs@1.1.0: {}
-
-  xregexp@4.4.1:
-    dependencies:
-      '@babel/runtime-corejs3': 7.29.7
 
   xxhash-wasm@1.1.0: {}
 
