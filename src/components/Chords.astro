@@ -39,8 +39,9 @@ const stringSerial = JSON.stringify(serialized)
         const chordLyricLines = newValue?.bodyLines.map((line, i) => {
             const lines = line.items.map((item, j) => {
                 if (item instanceof ChordLyricsPair) {
-                    const chords = `<span class="pair-${i}-${j} group-hover:bg-amber-400">${item.chords}</span>`
-                    const lyrics = `<span class="pair-${i}-${j} group-hover:bg-amber-400">${item.lyrics}</span>`
+                    const span = (content: string | null) => `<span class="pair-${i}-${j} group-hover:bg-amber-400">${content}</span>`
+                    const chords = span(item.chords)
+                    const lyrics = span(item.lyrics)
 
                     // ensure alignment of chords and lyrics in case either are absent
                     if (item.chords.trim() === "") {
