@@ -68,8 +68,8 @@
 
             const currentHighlightedLine = document.getElementById(`${line}`) as HTMLPreElement
             const nextHighlightedLine = document.getElementById(`${line + 1}`) as HTMLPreElement | null
-            const currentChidren = currentHighlightedLine.children.length
-            const itemIsLastInLine = item + 1 > currentChidren;
+            const currentChildren = currentHighlightedLine.children.length
+            const itemIsLastInLine = item + 1 > currentChildren;
 
             // if current highlighted item is last item in current line and there is no more next line, do nothing
             if (!nextHighlightedLine && itemIsLastInLine) return
