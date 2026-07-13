@@ -16,7 +16,6 @@ const song = parser.parse(chords)
 const serializer = new ChordSheetSerializer()
 const serialized = serializer.serialize(song)
 const stringSerial = JSON.stringify(serialized)
-
 ---
 <Controls/>
 <div data-song={stringSerial} class="songsheet">
@@ -35,31 +34,38 @@ const stringSerial = JSON.stringify(serialized)
     setSong(deserializedSong)
 
     subscribeToSong((newValue, _) => {
-        console.log(newValue)
-        const chordLyricLines = newValue?.bodyLines.map((line, i) => {
-            const lines = line.items.map((item, j) => {
+        let lineId = 0
+        const chordLyricLines = newValue?.bodyLines.map((line, lineNumber) => {
+            const lines = line.items.map((item, itemNumber) => {
+                if (!item.parentLine) return
+
                 if (item instanceof ChordLyricsPair) {
-                    const span = (content: string | null) => `<span class="pair-${i}-${j} group-hover:bg-amber-400">${content}</span>`
+                    const span = (content: string | null) => `<span>${content}</span>`
                     const chords = span(item.chords)
                     const lyrics = span(item.lyrics)
 
                     // ensure alignment of chords and lyrics in case either are absent
                     if (item.chords.trim() === "") {
-                        return `<div class="group grid content-end whitespace-nowrap">${chords}${lyrics}</div>`
+                        return `<div id="${lineId + 1}-${itemNumber + 1}" class="chord-lyric-pair group grid content-end whitespace-nowrap">${lyrics}</div>`
                     }
 
                     if (!item.lyrics) {
-                        return `<div data-chord="${item.chords}" class="group grid content-start whitespace-nowrap">${chords}${lyrics}</div>`
+                        return `<div id="${lineId + 1}-${itemNumber + 1}" data-chord="${item.chords}" class="chord-lyric-pair group grid content-start whitespace-nowrap">${chords}</div>`
                     }
 
-                    return `<div data-chord="${item.chords}" class="group grid whitespace-nowrap">${chords}${lyrics}</div>`
+                    return `<div id="${lineId + 1}-${itemNumber + 1}" data-chord="${item.chords}" class="chord-lyric-pair group grid whitespace-nowrap">${chords}${lyrics}</div>`
                 }
-            })
-            return `
-            <pre class="section-${i} flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
-                ${lines.join("")}
-            </pre>
-            `
+            }).filter(Boolean)
+
+            if (lines.length > 0) {
+                const preTag = `
+                <pre id="${lineId + 1}" class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
+                    ${lines.join("")}
+                </pre>
+                `
+                lineId++
+                return preTag
+            }
         }).join("")
         container.innerHTML = chordLyricLines!.toString()
     })
