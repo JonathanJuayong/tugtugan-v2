@@ -85,15 +85,19 @@ const stringSerial = JSON.stringify(serialized)
         const highlight = "bg-amber-200";
         const {line: newLine, item: newItem} = newValue
         const highlightedItem = document.getElementById(`${newLine}-${newItem}`) as HTMLDivElement
-        highlightedItem.classList.add(highlight)
 
         if (oldValue?.line || oldValue?.item) {
             const {line: previousLine, item: previousItem} = oldValue
 
-            if (previousLine === newLine && previousItem === newItem) return
+            if (previousLine === newLine && previousItem === newItem) {
+                highlightedItem.classList.toggle(highlight)
+                return
+            }
 
             const previouslyHighlightedItem = document.getElementById(`${previousLine}-${previousItem}`) as HTMLDivElement
             previouslyHighlightedItem.classList.remove(highlight)
         }
+
+        highlightedItem.classList.add(highlight)
     })
 </script>
