@@ -23,7 +23,7 @@ const stringSerial = JSON.stringify(serialized)
 
 <script>
     import {ChordLyricsPair, ChordSheetSerializer, type SerializedSong} from "chordsheetjs";
-    import {subscribeToSong, setSong, getSong} from "../store.ts";
+    import {subscribeToSong, setSong, setHighlightedItem, subscribeToHighlightedItem} from "../store.ts";
 
     const container = document.querySelector(".songsheet") as HTMLDivElement;
     const song = container.getAttribute("data-song")!
@@ -37,8 +37,6 @@ const stringSerial = JSON.stringify(serialized)
         let lineId = 0
         const chordLyricLines = newValue?.bodyLines.map((line) => {
             const lines = line.items.map((item, itemNumber) => {
-                if (!item.parentLine) return
-
                 if (item instanceof ChordLyricsPair) {
                     const span = (content: string | null) => `<span>${content}</span>`
                     const chords = span(item.chords)
@@ -68,5 +66,34 @@ const stringSerial = JSON.stringify(serialized)
             }
         }).join("")
         container.innerHTML = chordLyricLines!.toString()
+    })
+
+    container.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement
+        const chordLyricPair = target.closest('.chord-lyric-pair') as HTMLDivElement | null
+        if (!chordLyricPair) return
+        const id = chordLyricPair.id
+        const [line, item] = id.split("-")
+        const lineNumber = parseInt(line)
+        const itemNumber = parseInt(item)
+        setHighlightedItem(lineNumber, itemNumber)
+    })
+
+    subscribeToHighlightedItem((newValue, oldValue) => {
+        if (!newValue.line || !newValue.item) return
+
+        const highlight = "bg-amber-200";
+        const {line: newLine, item: newItem} = newValue
+        const highlightedItem = document.getElementById(`${newLine}-${newItem}`) as HTMLDivElement
+        highlightedItem.classList.add(highlight)
+
+        if (oldValue?.line || oldValue?.item) {
+            const {line: previousLine, item: previousItem} = oldValue
+
+            if (previousLine === newLine && previousItem === newItem) return
+
+            const previouslyHighlightedItem = document.getElementById(`${previousLine}-${previousItem}`) as HTMLDivElement
+            previouslyHighlightedItem.classList.remove(highlight)
+        }
     })
 </script>

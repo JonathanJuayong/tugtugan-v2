@@ -7,13 +7,19 @@
             <button data-action="plus">+</button>
         </div>
     </div>
-    <button class="ml-auto">
-        Auto-scroll >
-    </button>
+    <div class="ml-auto flex gap-2">
+        <button data-action="previous">
+            👈 Previous
+        </button>
+        <button data-action="next">
+            Next 👉
+        </button>
+
+    </div>
 </div>
 
 <script>
-    import {getSong, setSong} from "../store.ts";
+    import {getCurrentHighlightedItem, getSong, setHighlightedItem, setSong} from "../store.ts";
 
     const parent = document.querySelector('.controls')!;
     const counter = document.querySelector('.counter')! as HTMLElement;
@@ -28,6 +34,8 @@
 
         if (!button) return
 
+        const {line, item} = getCurrentHighlightedItem()
+
         if (button.dataset.action === 'plus') {
             const transposed = song?.transposeUp()!
             count = (count + 1) % MUSICAL_TONES
@@ -36,10 +44,45 @@
             const transposed = song?.transposeDown()!
             count = (count - 1) % MUSICAL_TONES
             setSong(transposed)
+        } else if(button.dataset.action === 'previous') {
+            // no highlighted item yet
+            if (!line || !item) return
+
+            // if the very first item in the chordsheet is highlighted, do not do anything
+            if (line === 1 && item === 1) return
+
+            // if item highlighted is first item in the current line, highlight the last item in the previous line
+            if (item === 1) {
+                const previousLineId = line - 1;
+                const previousLine = document.getElementById(`${previousLineId}`) as HTMLPreElement
+                const children = previousLine.children.length
+                setHighlightedItem(previousLineId, children)
+                return
+            }
+
+            // highlight previous item in current line
+            setHighlightedItem(line, item - 1)
+        } else if(button.dataset.action === 'next') {
+            // no highlighted item yet
+            if (!line || !item) return
+
+            const currentHighlightedLine = document.getElementById(`${line}`) as HTMLPreElement
+            const nextHighlightedLine = document.getElementById(`${line + 1}`) as HTMLPreElement | null
+            const currentChidren = currentHighlightedLine.children.length
+            const itemIsLastInLine = item + 1 > currentChidren;
+
+            // if current highlighted item is last item in current line and there is no more next line, do nothing
+            if (!nextHighlightedLine && itemIsLastInLine) return
+
+            // if current highlighted item is the last item in current line and there is still a next line, highlight first item in next line
+            if (nextHighlightedLine && itemIsLastInLine) {
+                setHighlightedItem(line + 1, 1)
+                return
+            }
+
+            setHighlightedItem(line, item + 1)
         }
 
         counter.textContent = count.toString()
     });
-
-
 </script>
