@@ -99,5 +99,10 @@ const stringSerial = JSON.stringify(serialized)
         }
 
         highlightedItem.classList.add(highlight)
+        highlightedItem.scrollIntoView({
+            behavior: "smooth", // Use "auto" for instant jumping
+            block: "center",    // Vertically centers the element
+            inline: "center"    // Horizontally centers the element
+        })
     })
 </script>
