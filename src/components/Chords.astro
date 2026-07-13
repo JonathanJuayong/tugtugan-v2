@@ -35,7 +35,7 @@ const stringSerial = JSON.stringify(serialized)
 
     subscribeToSong((newValue, _) => {
         let lineId = 0
-        const chordLyricLines = newValue?.bodyLines.map((line, lineNumber) => {
+        const chordLyricLines = newValue?.bodyLines.map((line) => {
             const lines = line.items.map((item, itemNumber) => {
                 if (!item.parentLine) return
 
