@@ -33,8 +33,8 @@ const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
     <main class="container">
         <section class="video">
             <YoutubeEmbed url={youtubeUrl}/>
-            <h2>{song.data.title}</h2>
-            <p>{song.data.artist}</p>
+            <h2 class="text-4xl mt-2 font-black">{song.data.title}</h2>
+            <p class="text-sm text-gray-600">{song.data.artist}</p>
         </section>
         <div class="chords">
             <Chords {chords}/>
