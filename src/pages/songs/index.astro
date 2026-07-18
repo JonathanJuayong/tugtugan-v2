@@ -1,13 +1,67 @@
 ---
 import {getCollection} from "astro:content";
+import SongLink from "../../components/SongLink.astro";
+import Body from "../../layouts/Body.astro";
 const songs = await getCollection('songs')
 ---
 
-<ul>
-    {songs.map(song => (
-            <li>
-                <a href={`/songs/${song.id}`}>{song.data.title}</a>
-            </li>
-    ))}
-</ul>
+<Body title="Songs">
+    <main class="container grid gap-4">
+        <form class="grid gap-0.5">
+            <label class="text-xs " for="search">
+                Search
+            </label>
+            <input id="search" type="text" autocomplete="off" placeholder="Search for any artist or song" name="search" class="border w-full rounded-lg py-1 px-2" />
+        </form>
+        <ul class="all-songs grid gap-4">
+            {songs.map(song => (
+                    <li data-artist={song.data.artist} data-title={song.data.title}>
+                        <SongLink id={song.id} artist={song.data.artist} title={song.data.title}/>
+                    </li>
+            ))}
+        </ul>
+    </main>
+</Body>
+
+<script>
+    const form = document.querySelector('form')!;
+    const input = document.querySelector('input')!;
+    const ul = document.querySelector('.all-songs')!;
+    const listedSongs = ul.children
+
+    input.addEventListener('input', e => {
+        if (!(e.target instanceof HTMLInputElement)) return
+
+        const search = e.target.value.trim().toLowerCase();
+        const songsArray = [...listedSongs]
+
+        if (search === "") {
+            songsArray.forEach(song => {
+                song.classList.remove("hidden")
+            })
+            return
+        }
+
+        songsArray.forEach(song => {
+            song.classList.add("hidden")
+        })
+
+        const filtered = songsArray.filter(child => {
+            const artist = child.getAttribute('data-artist')?.trim().toLowerCase();
+            const title = child.getAttribute('data-title')?.trim().toLowerCase();
+            return artist?.includes(search) || title?.includes(search);
+        })
+
+        if (filtered.length === 0) return
+
+        filtered.forEach((song) => {
+            song.classList.remove("hidden")
+        })
+
+    })
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+    })
+</script>
 
