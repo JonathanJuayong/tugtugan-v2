@@ -2,5 +2,6 @@
 
 .container {
     max-width: 150ch;
+    padding-inline: 1rem;
     margin: 0 auto;
 }
