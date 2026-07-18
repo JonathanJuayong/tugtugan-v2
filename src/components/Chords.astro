@@ -44,14 +44,14 @@ const stringSerial = JSON.stringify(serialized)
 
                     // ensure alignment of chords and lyrics in case either are absent
                     if (item.chords.trim() === "") {
-                        return `<div id="${lineId + 1}-${itemNumber + 1}" class="chord-lyric-pair group grid content-end whitespace-nowrap">${lyrics}</div>`
+                        return `<div id="${lineId + 1}-${itemNumber + 1}" class="chord-lyric-pair group grid content-end whitespace-nowrap cursor-pointer">${lyrics}</div>`
                     }
 
                     if (!item.lyrics) {
-                        return `<div id="${lineId + 1}-${itemNumber + 1}" data-chord="${item.chords}" class="chord-lyric-pair group grid content-start whitespace-nowrap">${chords}</div>`
+                        return `<div id="${lineId + 1}-${itemNumber + 1}" data-chord="${item.chords}" class="chord-lyric-pair group grid content-start whitespace-nowrap cursor-pointer">${chords}</div>`
                     }
 
-                    return `<div id="${lineId + 1}-${itemNumber + 1}" data-chord="${item.chords}" class="chord-lyric-pair group grid whitespace-nowrap">${chords}${lyrics}</div>`
+                    return `<div id="${lineId + 1}-${itemNumber + 1}" data-chord="${item.chords}" class="chord-lyric-pair group grid whitespace-nowrap cursor-pointer">${chords}${lyrics}</div>`
                 }
             }).filter(Boolean)
 
