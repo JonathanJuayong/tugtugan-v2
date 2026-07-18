@@ -1,0 +1,16 @@
+---
+interface Props {
+    title: string
+    artist: string
+    id: string
+}
+
+const {title, artist, id} = Astro.props
+---
+
+<a href={`/songs/${id}`}>
+    <div class="">
+        <p class="text-lg font-extrabold">{title}</p>
+        <p class="text-sm text-gray-600">{artist}</p>
+    </div>
+</a>
