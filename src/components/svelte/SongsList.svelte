@@ -1,5 +1,8 @@
 <script lang="ts">
     import PlayIcon from '@lucide/svelte/icons/play'
+    import { SegmentedControl} from "@skeletonlabs/skeleton-svelte";
+    import ViewBySongs from "./ViewBySongs.svelte";
+    import ViewByArtists from "./ViewByArtists.svelte";
 
     interface Props {
         songs: {
@@ -21,29 +24,38 @@
             return artist.includes(query) || title.includes(query)
         })
     })
+
+    let viewBy = $state<'Songs' | 'Artists'>('Songs')
+    function onValueChange(target: {value: string | null}) {
+        viewBy = target.value as "Songs" | "Artists"
+    }
+
 </script>
 
-<form>
+<form class="space-y-4">
     <label class="label" for="search">
         <span class="label-text">Search</span>
         <input bind:value={search} id="search" type="text" autocomplete="off" placeholder="Search for any artist or song" name="search" class="input" />
     </label>
+    <SegmentedControl value={viewBy} {onValueChange}>
+        <SegmentedControl.Label>View by:</SegmentedControl.Label>
+        <SegmentedControl.Control>
+            <SegmentedControl.Indicator />
+            <SegmentedControl.Item value='Songs'>
+                <SegmentedControl.ItemText>Songs</SegmentedControl.ItemText>
+                <SegmentedControl.ItemHiddenInput />
+            </SegmentedControl.Item>
+            <SegmentedControl.Item value='Artists'>
+                <SegmentedControl.ItemText>Artists</SegmentedControl.ItemText>
+                <SegmentedControl.ItemHiddenInput />
+            </SegmentedControl.Item>
+        </SegmentedControl.Control>
+    </SegmentedControl>
 </form>
 <p class="preset-typo-caption">{displayedSongs.length} {displayedSongs.length === 1 ? "Song" : "Songs"}</p>
-<ul class="card divide-y divide-surface-800 bg-surface-950">
-    {#each displayedSongs as song (song.id)}
-    <li>
-        <a class="px-4 py-2 flex items-center gap-2" href={`songs/${song.id}`}>
-            <div>
-                <p class="preset-typo-title">
-                    {song.title}
-                </p>
-                <p class="preset-typo-subtitle">
-                    {song.artist}
-                </p>
-            </div>
-            <PlayIcon class="ml-auto" />
-        </a>
-    </li>
-    {/each}
-</ul>
+
+{#if viewBy === "Songs"}
+    <ViewBySongs songs={displayedSongs} />
+{:else if viewBy === "Artists"}
+    <ViewByArtists songs={displayedSongs} />
+{/if}
