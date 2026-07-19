@@ -1,5 +1,4 @@
 <script lang="ts">
-    import PlayIcon from '@lucide/svelte/icons/play'
     import { SegmentedControl} from "@skeletonlabs/skeleton-svelte";
     import ViewBySongs from "./ViewBySongs.svelte";
     import ViewByArtists from "./ViewByArtists.svelte";
