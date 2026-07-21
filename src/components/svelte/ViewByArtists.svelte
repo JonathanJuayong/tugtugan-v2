@@ -64,7 +64,7 @@
             <ul class="pl-4 border-l-2 border-l-surface-800 ">
                 {#each groupSongsByArtists()[artist] as {id, title}}
                     <li>
-                        <a class="anchor flex gap-2 items-center" href={id}>
+                        <a class="anchor flex gap-2 items-center" href={`songs/${id}`}>
                             {title}
                             <SquareArrowOutUpRightIcon size={16} />
                         </a>
