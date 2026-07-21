@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton/themes/wintry';
+@import '@skeletonlabs/skeleton/themes/vintage';
 @import '@skeletonlabs/skeleton-svelte';
 
 .container {
