@@ -89,7 +89,7 @@
         }
     }
 
-    function previousItem(e: Event) {
+    function previousItem() {
         const {line, item} = currentItemNumbers
 
         if (!currentHighlightedItem) return
@@ -128,7 +128,7 @@
         }
     }
 
-    function nextItem(e: Event) {
+    function nextItem() {
         const {line, item} = currentItemNumbers
         const nextSibling = currentHighlightedItem?.nextElementSibling
 
