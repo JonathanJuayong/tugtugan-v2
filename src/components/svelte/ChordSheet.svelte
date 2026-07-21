@@ -18,14 +18,6 @@
     let lines = $derived.by(() => {
         const song = parser.parse(chords)
         return song.bodyLines.map(((line) => {
-            if (line.type === "none") {
-                return [{
-                    itemNumber: 0,
-                    chords: '',
-                    lyrics: '',
-                }]
-            }
-
             return line.items.map((item, itemNumber) => {
                 if (item instanceof ChordLyricsPair) {
                     const {chords, lyrics} = item
