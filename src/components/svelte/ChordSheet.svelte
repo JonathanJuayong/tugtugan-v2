@@ -51,6 +51,12 @@
             return
         }
 
+        if (item && item.id === highlightedItem.id) {
+            highlightedItem.classList.remove(...highlight)
+            highlightedItem = null
+            return
+        }
+
         highlightedItem.classList.remove(...highlight)
         item?.classList.add(...highlight)
         highlightedItem = item
