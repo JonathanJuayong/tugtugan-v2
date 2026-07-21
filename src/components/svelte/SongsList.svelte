@@ -38,7 +38,7 @@
     </label>
     <SegmentedControl value={viewBy} {onValueChange}>
         <SegmentedControl.Label>View by:</SegmentedControl.Label>
-        <SegmentedControl.Control>
+        <SegmentedControl.Control class="bg-surface-950">
             <SegmentedControl.Indicator />
             <SegmentedControl.Item value='Songs'>
                 <SegmentedControl.ItemText>Songs</SegmentedControl.ItemText>
