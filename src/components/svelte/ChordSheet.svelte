@@ -14,9 +14,13 @@
 
     let transposeLevel = $state(0)
 
-    const parser = new UltimateGuitarParser()
+    let song = $derived.by(() => {
+        const parser = new UltimateGuitarParser()
+        const parsed = parser.parse(chords)
+        return parsed.transpose(transposeLevel)
+    })
+
     let lines = $derived.by(() => {
-        const song = parser.parse(chords)
         return song.bodyLines.map(((line) => {
             return line.items.map((item, itemNumber) => {
                 if (item instanceof ChordLyricsPair) {
@@ -126,7 +130,6 @@
 
         if (!currentHighlightedItem) return
 
-        if (line === 1 && item === 1) return
         if (nextSibling) {
             previousHighlightedItem = currentHighlightedItem
             currentItemNumbers = {
@@ -157,16 +160,31 @@
         }
     }
 
+    const MUSICAL_NOTES = 12
+    function transposeUp() {
+        if (transposeLevel === MUSICAL_NOTES - 1) {
+            return transposeLevel = 0
+        }
+        transposeLevel += 1
+    }
+
+    function transposeDown() {
+        if (Math.abs(transposeLevel) === MUSICAL_NOTES - 1) {
+            return transposeLevel = 0
+        }
+        transposeLevel -= 1
+    }
+
 </script>
 <div class="relative">
-    <div class="flex items-center sticky top-0 bg-surface-950 py-2 px-4 rounded-xl">
+    <div class="flex items-center sticky top-4 lg:top-0 bg-surface-950 py-2 px-4 rounded-xl">
         <div class="flex items-center gap-2">
             <p class="preset-typo-caption uppercase">Transpose Song: </p>
-            <button title="Transpose Down" aria-label="Transpose Down" class="btn btn-icon-2xl cursor-pointer">
+            <button onclick={transposeDown} title="Transpose Down" aria-label="Transpose Down" class="btn btn-icon-2xl cursor-pointer">
                 <MinusIcon />
             </button>
             <p>{transposeLevel}</p>
-            <button title="Transpose Up" aria-label="Transpose Up" class="btn btn-icon-2xl cursor-pointer">
+            <button onclick={transposeUp} title="Transpose Up" aria-label="Transpose Up" class="btn btn-icon-2xl cursor-pointer">
                 <PlusIcon />
             </button>
         </div>
@@ -180,10 +198,10 @@
             </button>
         </div>
     </div>
-    <div class="container">
+    <div>
         {#each lines as line, i}
             <div id={`${i + 1}`} class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
-                {#each line as item}
+                {#each line as item (item.itemNumber)}
                     {#if item.itemNumber === 0}
                         <pre id={`${i + 1}-${0}`}>
 
