@@ -104,7 +104,7 @@
 
 <div class={classList}>
     <div class="flex items-center gap-2">
-        <p class="preset-typo-caption uppercase">Transpose Song: </p>
+        <p class="preset-typo-caption uppercase hidden sm:block">Transpose Song: </p>
         <button onclick={transposeDown} title="Transpose Down" aria-label="Transpose Down" class="btn btn-icon-2xl cursor-pointer">
             <MinusIcon />
         </button>
@@ -113,8 +113,9 @@
             <PlusIcon />
         </button>
     </div>
-    <div class="flex items-center gap-2 ml-auto">
-        <p class="preset-typo-caption uppercase">Navigate: </p>
+    <span class="vr block sm:hidden"></span>
+    <div class="flex items-center gap-2">
+        <p class="preset-typo-caption uppercase hidden sm:block">Navigate: </p>
         <button onclick={previousItem} title="Previous Item" aria-label="Previous Item" class="btn btn-icon-2xl cursor-pointer">
             <ChevronLeftIcon />
         </button>
