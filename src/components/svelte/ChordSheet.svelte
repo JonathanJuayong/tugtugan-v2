@@ -1,7 +1,7 @@
 <script lang="ts">
     import {ChordLyricsPair, UltimateGuitarParser} from "chordsheetjs";
     import {ChevronLeftIcon, ChevronRightIcon, MinusIcon, PlusIcon} from "@lucide/svelte";
-    import ChordLineItem from "./ChordLineItem.svelte";
+    import ChordSheetLineItem from "./ChordSheetLineItem.svelte";
     import type {ChordItem} from "../../utils/types.ts";
 
     let { chords }: { chords: string } = $props()
@@ -177,7 +177,7 @@
             {#if line.length > 0}
                 <div id={`${line[0].lineNumber}`} class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
                     {#each line as item (item.itemNumber)}
-                        <ChordLineItem {item} bind:currentHighlightedItem={currentHighlightedItem} />
+                        <ChordSheetLineItem {item} bind:currentHighlightedItem={currentHighlightedItem} />
                     {/each}
                 </div>
             {/if}
