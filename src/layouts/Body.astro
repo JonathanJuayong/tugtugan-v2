@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import {Heart, PlayIcon} from '@lucide/astro'
 
 interface Props {
     title: string
@@ -31,5 +32,11 @@ const {title} = Astro.props
     </nav>
 </header>
 <slot/>
+<footer class="border-t border-surface-600 py-6">
+    <div class="container narrow flex gap-1 items-center text-surface-300">
+        <p class="text-xs">Created by Jonathan Juayong with</p>
+        <Heart class="inline" size={14}/>
+    </div>
+</footer>
 </body>
 </html>
