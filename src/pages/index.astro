@@ -3,14 +3,46 @@ import Body from "../layouts/Body.astro";
 import {Image} from 'astro:assets'
 import groupPhoto from '../images/group-photos.png'
 import { PlayIcon } from "@lucide/svelte";
+import {getCollection} from "astro:content";
+import {getRandomSongs} from "../utils/songs.ts";
+
+const songs = await getCollection('songs');
+const numberOfSongs = 4
+const randomSongs = getRandomSongs(numberOfSongs, songs)
+const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
+	id,
+	title,
+	artist,
+}))
 ---
 <Body title="Tugtugan">
-	<div class="container narrow grid place-content-center place-items-center gap-5 min-h-screen">
+<div class="container narrow space-y-20 pt-6 pb-32">
+	<div class="grid content-start place-items-center gap-5">
 		<Image src={groupPhoto} alt="Group photo of musicians" width={450}/>
 		<section class="text-center space-y-4">
 			<h1 class="preset-typo-display-1 leading-10">Tugtugan Sessions</h1>
-			<p>Chords for songs</p>
+			<p class="preset-typo-body-1">Chords for songs</p>
 		</section>
 		<a class="btn btn-sm preset-filled-brand" href="songs">View All Songs <PlayIcon /></a>
 	</div>
+	<div class="space-y-6">
+		<div class="flex justify-between items-baseline">
+			<h2 class="preset-typo-body-2">Suggested Songs:</h2>
+			<a class="anchor text-xs" href="songs">View all Songs</a>
+		</div>
+		<ul class="grid gap-4 sm:grid-cols-2">
+			{otherSongs.map(({id, title, artist}) => (
+				<li class="bg-surface-950 card">
+					<a class="px-4 py-2 flex items-center gap-2 anchor" href={`${id}`}>
+						<div class="overflow-hidden">
+							<p class="preset-typo-title truncate sm:max-w-[16ch] ">{title}</p>
+							<p class="preset-typo-subtitle truncate sm:max-w-[16ch]">{artist}</p>
+						</div>
+						<PlayIcon class="ml-auto" />
+					</a>
+				</li>
+			))}
+		</ul>
+	</div>
+</div>
 </Body>
