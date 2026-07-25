@@ -30,7 +30,7 @@
 
 
                     return {
-                        highlighted: isHighlighted,
+                        isHighlighted: isHighlighted,
                         lineNumber: lineNumber,
                         itemNumber: itemNumber,
                         chords: chordsIsEmpty ? '' : chords,
@@ -39,7 +39,7 @@
                 }
 
                 return {
-                    highlighted: isHighlighted,
+                    isHighlighted: isHighlighted,
                     lineNumber: lineNumber,
                     itemNumber: -1,
                     chords: '',
