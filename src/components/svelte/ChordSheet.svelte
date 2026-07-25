@@ -65,22 +65,21 @@
     })
 
 </script>
-<div class="relative">
-    <ChordSheetControls
-        bind:currentHighlightedItem={currentHighlightedItem}
-        bind:transposeLevel={transposeLevel}
-        {lines}
-        classList="flex flex-wrap items-center justify-between sticky top-4 lg:top-0 bg-surface-950 py-2 px-4 rounded-xl"
-    />
-    <div>
-        {#each lines as line}
-            {#if line.length > 0}
-                <div id={`${line[0].lineNumber}`} class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
-                    {#each line as item (item.itemNumber)}
-                        <ChordSheetLineItem {item} bind:currentHighlightedItem={currentHighlightedItem} />
-                    {/each}
-                </div>
-            {/if}
-        {/each}
-    </div>
+
+<ChordSheetControls
+    bind:currentHighlightedItem={currentHighlightedItem}
+    bind:transposeLevel={transposeLevel}
+    {lines}
+    classList="flex flex-wrap items-center justify-between sticky top-4 bg-surface-950 py-2 px-4 rounded-xl"
+/>
+<div class="overflow-scroll">
+    {#each lines as line}
+        {#if line.length > 0}
+            <div id={`${line[0].lineNumber}`} class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
+                {#each line as item (item.itemNumber)}
+                    <ChordSheetLineItem {item} bind:currentHighlightedItem={currentHighlightedItem} />
+                {/each}
+            </div>
+        {/if}
+    {/each}
 </div>
