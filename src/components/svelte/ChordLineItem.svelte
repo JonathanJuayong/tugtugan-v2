@@ -1,18 +1,44 @@
 <script lang="ts">
+    import type {ChordItem} from "../../utils/types.ts";
+
     interface Props {
-        item: {
-            isHighlighted: boolean
-            lineNumber: number
-            itemNumber: number
-            chords: string
-            lyrics: string
+        item: ChordItem
+        currentHighlightedItem: {
+            line: number,
+            item: number
         }
-        onclick: (e: Event) => void
     }
-    const {item, onclick}: Props = $props()
+    let {item, currentHighlightedItem = $bindable()}: Props = $props()
     const id = $derived(`${item.lineNumber}-${item.itemNumber}`)
 
     const highlight = 'bg-primary-700 text-surface-900 font-bold'
+
+    function onclick(e: Event) {
+        const target = e.target
+        if (!(target instanceof HTMLElement)) return
+
+        const preElement = target.closest('pre');
+        if (!preElement) return;
+
+        const [newLine, newItem] = preElement.id.split('-').map((id) => parseInt(id))
+        const {line, item} = currentHighlightedItem
+
+        console.log({line, item, newLine, newItem})
+        const isSameItem = line === newLine && item === newItem;
+        if (isSameItem) {
+            currentHighlightedItem = {
+                line: -1,
+                item: -1
+            }
+            return
+        }
+
+        currentHighlightedItem = {
+            line: newLine,
+            item: newItem
+        }
+    }
+
 </script>
 
 {#if item.itemNumber === -1}

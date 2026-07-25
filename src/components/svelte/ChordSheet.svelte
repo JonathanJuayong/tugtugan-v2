@@ -2,6 +2,7 @@
     import {ChordLyricsPair, UltimateGuitarParser} from "chordsheetjs";
     import {ChevronLeftIcon, ChevronRightIcon, MinusIcon, PlusIcon} from "@lucide/svelte";
     import ChordLineItem from "./ChordLineItem.svelte";
+    import type {ChordItem} from "../../utils/types.ts";
 
     let { chords }: { chords: string } = $props()
     let currentHighlightedItem = $state({
@@ -17,7 +18,7 @@
         return parsed.transpose(transposeLevel)
     })
 
-    let lines = $derived.by(() => {
+    let lines: ChordItem[][] = $derived.by(() => {
         return song.bodyLines.map(((line, lineNumber) => {
             return line.items.map((item, itemNumber) => {
                 const isHighlighted = currentHighlightedItem.line === lineNumber && currentHighlightedItem.item === itemNumber
@@ -64,32 +65,6 @@
             inline: 'center',
         })
     })
-
-    function onclick(e: Event) {
-        const target = e.target
-        if (!(target instanceof HTMLElement)) return
-
-        const preElement = target.closest('pre');
-        if (!preElement) return;
-
-        const [newLine, newItem] = preElement.id.split('-').map((id) => parseInt(id))
-        const {line, item} = currentHighlightedItem
-
-        console.log({line, item, newLine, newItem})
-        const isSameItem = line === newLine && item === newItem;
-        if (isSameItem) {
-            currentHighlightedItem = {
-                line: -1,
-                item: -1
-            }
-            return
-        }
-
-        currentHighlightedItem = {
-            line: newLine,
-            item: newItem
-        }
-    }
 
     function previousItem() {
         const {line, item} = currentHighlightedItem
@@ -202,7 +177,7 @@
             {#if line.length > 0}
                 <div id={`${line[0].lineNumber}`} class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
                     {#each line as item (item.itemNumber)}
-                        <ChordLineItem item={item} onclick={onclick} />
+                        <ChordLineItem {item} bind:currentHighlightedItem={currentHighlightedItem} />
                     {/each}
                 </div>
             {/if}
