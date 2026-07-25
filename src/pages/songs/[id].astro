@@ -4,6 +4,7 @@ import {getChords, getRandomSongs, getUrlFromIframe, getYoutubeEmbed} from "../.
 import YoutubeEmbed from "../../components/YoutubeEmbed.astro";
 import SuggestedSongs from "../../components/SuggestedSongs.astro";
 import Body from "../../layouts/Body.astro";
+import ChordSheet from '../../components/svelte/ChordSheet.svelte'
 
 export async function getStaticPaths() {
     const songs = await getCollection('songs');
