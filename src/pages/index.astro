@@ -1,8 +1,16 @@
 ---
 import Body from "../layouts/Body.astro";
+import {Image} from 'astro:assets'
+import groupPhoto from '../images/group-photos.png'
+import { PlayIcon } from "@lucide/svelte";
 ---
 <Body title="Tugtugan">
-	<div class="container min-h-screen">
-		<h1 class="">Tugtugan</h1>
+	<div class="container narrow grid place-content-center place-items-center gap-5 min-h-screen">
+		<Image src={groupPhoto} alt="Group photo of musicians" width={450}/>
+		<section class="text-center space-y-4">
+			<h1 class="preset-typo-display-1 leading-10">Tugtugan Sessions</h1>
+			<p>Chords for songs</p>
+		</section>
+		<a class="btn btn-sm preset-filled-brand" href="songs">View All Songs <PlayIcon /></a>
 	</div>
 </Body>
