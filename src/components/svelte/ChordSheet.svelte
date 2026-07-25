@@ -72,7 +72,7 @@
         bind:currentHighlightedItem={currentHighlightedItem}
         bind:transposeLevel={transposeLevel}
         {lines}
-        classList="flex items-center sticky top-4 lg:top-0 bg-surface-950 py-2 px-4 rounded-xl"
+        classList="flex flex-wrap items-center justify-between sticky top-4 lg:top-0 bg-surface-950 py-2 px-4 rounded-xl"
     />
     <div>
         {#each lines as line}
