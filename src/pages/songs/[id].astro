@@ -36,8 +36,8 @@ const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
             <h2 class="text-4xl mt-2 font-black">{song.data.title}</h2>
             <p class="text-sm text-gray-600">{song.data.artist}</p>
         </section>
-        <div class="chords">
-            <Chords {chords}/>
+        <div class="mb-40">
+            <ChordSheet client:load {chords}/>
         </div>
         <aside class="suggested">
             <SuggestedSongs songs={otherSongs} />
