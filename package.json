@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^9.0.1",
+    "@lucide/astro": "^1.26.0",
     "@lucide/svelte": "^1.25.0",
     "@skeletonlabs/skeleton-svelte": "^5.0.0",
     "@tailwindcss/vite": "^4.3.1",
