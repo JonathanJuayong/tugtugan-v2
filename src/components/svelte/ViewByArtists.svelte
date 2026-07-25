@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SquareArrowOutUpRightIcon from "@lucide/svelte/icons/square-arrow-out-up-right";
+    import {SquareArrowOutUpRightIcon} from "@lucide/svelte";
 
     interface Song {
         id: string;

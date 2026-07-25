@@ -1,5 +1,5 @@
 <script lang="ts">
-    import PlayIcon from "@lucide/svelte/icons/play";
+    import {PlayIcon} from "@lucide/svelte";
     interface Props {
         songs: {
             id: string;
