@@ -1,12 +1,23 @@
 ---
 import '../styles/global.css'
-import {Heart, PlayIcon} from '@lucide/astro'
+import {Heart, PlayIcon, ChevronRightIcon} from '@lucide/astro'
+import {getCollection} from "astro:content";
 
 interface Props {
     title: string
 }
 
 const {title} = Astro.props
+const {pathname} = Astro.url
+const pathnameSegments = pathname.split("/").filter(Boolean)
+
+const pageIsViewSongs = pathnameSegments[0] === "songs"
+const pageIsChords = pathnameSegments[1]?.includes("-")
+
+const songs = await getCollection('songs')
+
+const songTitle = songs.find(song => song.id === pathnameSegments[1])?.data.title
+
 ---
 
 <html data-theme="vintage" lang="en">
@@ -34,6 +45,18 @@ const {title} = Astro.props
         </ul>
     </nav>
 </header>
+<div class="container narrow pb-4">
+    {pageIsViewSongs && (
+            <ul class="flex gap-4 items-center-safe uppercase font-extralight text-xs">
+                <li><a class="anchor" href="/">Home</a></li>
+                <li><ChevronRightIcon size="10" /></li>
+                {pathnameSegments.length > 1 ? <li><a class="anchor" href="/songs">Songs</a></li> : <li><p>Songs</p></li>}
+                {(pageIsChords && pageIsViewSongs) && <li><ChevronRightIcon size="10" /></li> }
+                {(pageIsChords && pageIsViewSongs) && <li><p class="font-bold">{songTitle}</p></li>}
+            </ul>
+    )}
+</div>
+
 <slot/>
 <footer class="border-t border-surface-600 py-6">
     <div class="container narrow flex gap-1 items-center text-surface-300">
