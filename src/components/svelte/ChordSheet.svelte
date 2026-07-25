@@ -57,8 +57,6 @@
 
         if (!highlightedElement) return
 
-        console.log(highlightedElement)
-
         highlightedElement.scrollIntoView({
             behavior: 'smooth',
             block: 'center',
