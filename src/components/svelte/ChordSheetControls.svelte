@@ -55,8 +55,23 @@
     function nextItem() {
         const {line, item} = currentHighlightedItem
 
-        const currentLine = lines[line]
+        // if no highlighted item, highlight first chord lyric pair
+        const noHighlightedItem = line === -1 && item === -1
+        if (noHighlightedItem) {
+            const firstValidLine = lines.findIndex((line) => {
+                return line.some((item) => {
+                    return item.itemNumber !== -1
+                })
+            })
 
+            currentHighlightedItem = {
+                line: firstValidLine,
+                item: 0
+            }
+            return
+        }
+
+        const currentLine = lines[line]
         if (item < currentLine.length - 1) {
             currentHighlightedItem = {
                 line,
