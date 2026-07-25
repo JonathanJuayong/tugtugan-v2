@@ -1,4 +1,5 @@
 ---
+import {PlayIcon} from "@lucide/astro"
 interface Song {
     artist: string
     title: string
@@ -12,12 +13,17 @@ interface Props {
 const {songs} = Astro.props
 ---
 
-<p></p>
-<ul>
+<p class="preset-typo-caption uppercase mb-4">Other Suggested Songs:</p>
+<ul class="space-y-2 card divide-y divide-surface-800 bg-surface-950">
     {songs.map(({title, artist, id}) => (
-            <a class="block" href={id}>
-                <p class="text-lg">{title}</p>
-                <p class="text-xs">{artist}</p>
-            </a>
+            <li>
+                <a class="px-4 py-2 flex items-center gap-2 anchor" href={`${id}`}>
+                    <div>
+                        <p class="preset-typo-title">{title}</p>
+                        <p class="preset-typo-subtitle">{artist}</p>
+                    </div>
+                    <PlayIcon class="ml-auto" />
+                </a>
+            </li>
     ))}
 </ul>

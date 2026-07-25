@@ -2,9 +2,9 @@
 import {getCollection} from "astro:content";
 import {getChords, getRandomSongs, getUrlFromIframe, getYoutubeEmbed} from "../../utils/songs.ts";
 import YoutubeEmbed from "../../components/YoutubeEmbed.astro";
-import Chords from "../../components/Chords.astro";
 import SuggestedSongs from "../../components/SuggestedSongs.astro";
 import Body from "../../layouts/Body.astro";
+import ChordSheet from '../../components/svelte/ChordSheet.svelte'
 
 export async function getStaticPaths() {
     const songs = await getCollection('songs');
@@ -21,7 +21,7 @@ const youtubeIframe = getYoutubeEmbed(body!)!
 const youtubeUrl = getUrlFromIframe(youtubeIframe)!
 const chords = getChords(body!)!
 
-const numberOfRandomSongs = 5;
+const numberOfRandomSongs = 6;
 const randomSongs = getRandomSongs(numberOfRandomSongs, songs)
 const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
     id,
@@ -30,41 +30,17 @@ const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
 }))
 ---
 <Body title={song.data.title}>
-    <main class="container">
+    <main class="container narrow space-y-6 relative">
         <section class="video">
             <YoutubeEmbed url={youtubeUrl}/>
-            <h2>{song.data.title}</h2>
-            <p>{song.data.artist}</p>
+            <h2 class="preset-typo-headline">{song.data.title}</h2>
+            <p class="preset-typo-subtitle">{song.data.artist}</p>
         </section>
-        <div class="chords">
-            <Chords {chords}/>
+        <div class="mb-40">
+            <ChordSheet client:load {chords}/>
         </div>
-        <aside class="suggested">
+        <aside class="suggested min-h-screen pt-6">
             <SuggestedSongs songs={otherSongs} />
         </aside>
     </main>
 </Body>
-
-<style>
-    main {
-        display: grid;
-        gap: 2rem;
-        padding-inline: 1rem;
-    }
-
-
-    @media (min-width: 900px) {
-        main {
-            grid-template-columns: 50% 1fr;
-            grid-template-rows: auto 1fr;
-        }
-
-        .chords {
-            grid-row: span 2;
-            height: 100vh;
-            overflow-y: auto;
-            position: sticky;
-            top: 0;
-        }
-    }
-</style>
