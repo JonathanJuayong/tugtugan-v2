@@ -1,16 +1,13 @@
 <script lang="ts">
     import {ChordLyricsPair, UltimateGuitarParser} from "chordsheetjs";
-    import {ChevronLeftIcon, ChevronRightIcon, PlusIcon, MinusIcon} from "@lucide/svelte";
+    import {ChevronLeftIcon, ChevronRightIcon, MinusIcon, PlusIcon} from "@lucide/svelte";
+    import ChordLineItem from "./ChordLineItem.svelte";
 
     let { chords }: { chords: string } = $props()
-    let currentItemNumbers = $state({
-        line: 0,
-        item: 0
+    let currentHighlightedItem = $state({
+        line: -1,
+        item: -1
     })
-    let currentHighlightedItem = $derived.by(() => {
-        return document.getElementById(`${currentItemNumbers.line}-${currentItemNumbers.item}`)
-    })
-    let previousHighlightedItem = $state<typeof currentHighlightedItem>(null)
 
     let transposeLevel = $state(0)
 
@@ -21,43 +18,52 @@
     })
 
     let lines = $derived.by(() => {
-        return song.bodyLines.map(((line) => {
+        return song.bodyLines.map(((line, lineNumber) => {
             return line.items.map((item, itemNumber) => {
+                const isHighlighted = currentHighlightedItem.line === lineNumber && currentHighlightedItem.item === itemNumber
+
                 if (item instanceof ChordLyricsPair) {
                     const {chords, lyrics} = item
 
                     const lyricsIsEmpty = !lyrics || lyrics.trim().length === 0
                     const chordsIsEmpty = chords.trim().length === 0
 
+
                     return {
-                        itemNumber: itemNumber + 1,
+                        highlighted: isHighlighted,
+                        lineNumber: lineNumber,
+                        itemNumber: itemNumber,
                         chords: chordsIsEmpty ? '' : chords,
                         lyrics: lyricsIsEmpty ? '' : lyrics,
                     }
                 }
 
                 return {
-                    itemNumber: 0,
+                    highlighted: isHighlighted,
+                    lineNumber: lineNumber,
+                    itemNumber: -1,
                     chords: '',
                     lyrics: '',
                 }
             })
         }))
-            .filter((line) => line.length > 0)
+
     })
 
     $effect(() => {
-        const highlight = ['bg-primary-700', 'text-surface-900', 'font-bold']
-        if (previousHighlightedItem) {
-            previousHighlightedItem.classList.remove(...highlight)
-        }
+        const {line, item} = currentHighlightedItem
+        const highlightedElement = document.getElementById(`${line}-${item}`)
 
-        if (!currentHighlightedItem) return
+        if (!highlightedElement) return
 
-        currentHighlightedItem.classList.add(...highlight)
-        currentHighlightedItem.scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'})
+        console.log(highlightedElement)
+
+        highlightedElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center',
+        })
     })
-
 
     function onclick(e: Event) {
         const target = e.target
@@ -66,97 +72,90 @@
         const preElement = target.closest('pre');
         if (!preElement) return;
 
-        previousHighlightedItem = currentHighlightedItem
-
         const [newLine, newItem] = preElement.id.split('-').map((id) => parseInt(id))
-        const {line, item} = currentItemNumbers
+        const {line, item} = currentHighlightedItem
 
-        if (newLine === line && newItem === item) {
-            currentItemNumbers = {
-                line: 0,
-                item: 0
+        console.log({line, item, newLine, newItem})
+        const isSameItem = line === newLine && item === newItem;
+        if (isSameItem) {
+            currentHighlightedItem = {
+                line: -1,
+                item: -1
             }
             return
         }
 
-        currentItemNumbers = {
+        currentHighlightedItem = {
             line: newLine,
             item: newItem
         }
     }
 
     function previousItem() {
-        const {line, item} = currentItemNumbers
+        const {line, item} = currentHighlightedItem
 
-        if (!currentHighlightedItem) return
+        if (line === -1 || item === -1) return
 
-        const previousSibling = currentHighlightedItem.previousElementSibling
-
-        if (line === 1 && item === 1) return
-        if (previousSibling) {
-            previousHighlightedItem = currentHighlightedItem
-            currentItemNumbers = {
+        if (item > 0) {
+            currentHighlightedItem = {
                 line,
                 item: item - 1
             }
             return
         }
 
-        let previousLine = currentHighlightedItem.parentElement?.previousElementSibling
+        let index = line - 1
         while (true) {
+            const previousLine = lines[index];
             if (!previousLine) break
-            const previousLineChildren = [...previousLine.children];
-            const containsEmptyLine = previousLineChildren.some((e) => {
-                const [_, item] = e.id.split('-').map((id) => parseInt(id))
-                return item === 0
-            });
 
-            if (!containsEmptyLine) {
-                previousHighlightedItem = currentHighlightedItem
-                currentItemNumbers = {
-                    line: parseInt(previousLine.id),
-                    item: previousLineChildren.length
-                }
-                break
+            const previousLineLength = previousLine.length;
+
+            const lineIsInvalid = previousLineLength === 0 || previousLine.some((line) => line.itemNumber === -1)
+            if (lineIsInvalid) {
+                index -= 1
+                continue
             }
 
-            previousLine = previousLine.previousElementSibling
+            currentHighlightedItem = {
+                line: index,
+                item: previousLineLength - 1
+            }
+            break
         }
     }
 
     function nextItem() {
-        const {line, item} = currentItemNumbers
-        const nextSibling = currentHighlightedItem?.nextElementSibling
+        const {line, item} = currentHighlightedItem
 
-        if (!currentHighlightedItem) return
+        const currentLine = lines[line]
 
-        if (nextSibling) {
-            previousHighlightedItem = currentHighlightedItem
-            currentItemNumbers = {
+        if (item < currentLine.length - 1) {
+            currentHighlightedItem = {
                 line,
                 item: item + 1
             }
             return
         }
-        let nextLine = currentHighlightedItem.parentElement?.nextElementSibling
-        while (true) {
-            if (!nextLine) break
-            const nextLineChildren = [...nextLine.children];
-            const containsEmptyLine = nextLineChildren.some((e) => {
-                const [_, item] = e.id.split('-').map((id) => parseInt(id))
-                return item === 0
-            });
 
-            if (!containsEmptyLine) {
-                previousHighlightedItem = currentHighlightedItem
-                currentItemNumbers = {
-                    line: parseInt(nextLine.id),
-                    item: 1
-                }
-                break
+        let index = line + 1
+        while (true) {
+            const nextLine = lines[index];
+            if (!nextLine) break
+
+            const nextLineLength = nextLine.length;
+
+            const lineIsInvalid = nextLineLength === 0 || nextLine.some((line) => line.itemNumber === -1)
+            if (lineIsInvalid) {
+                index += 1
+                continue
             }
 
-            nextLine = nextLine.nextElementSibling
+            currentHighlightedItem = {
+                line: index,
+                item: 0
+            }
+            break
         }
     }
 
@@ -199,26 +198,14 @@
         </div>
     </div>
     <div>
-        {#each lines as line, i}
-            <div id={`${i + 1}`} class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
-                {#each line as item (item.itemNumber)}
-                    {#if item.itemNumber === 0}
-                        <pre id={`${i + 1}-${0}`}>
-
-                        </pre>
-                    {:else if item.chords === '' && item.lyrics.length > 0}
-                        <pre class="grid content-end transition-all" id={`${i + 1}-${item.itemNumber}`}><button {onclick} class="whitespace-nowrap cursor-pointer">{item.lyrics}</button></pre>
-                    {:else if item.lyrics === '' && item.chords.length > 0}
-                    <pre data-chord={item.chords} class="grid content-start transition-all" id={`${i + 1}-${item.itemNumber}`}><button
-                            {onclick} class="whitespace-nowrap cursor-pointer">{item.chords}</button></pre>
-                    {:else}
-                    <pre class="transition-all" data-chord={item.chords} id={`${i + 1}-${item.itemNumber}`}><button {onclick} class="grid whitespace-nowrap cursor-pointer">
-                        <span>{item.chords}</span>
-                        <span>{item.lyrics}</span>
-                    </button></pre>
-                    {/if}
-                {/each}
-            </div>
+        {#each lines as line}
+            {#if line.length > 0}
+                <div id={`${line[0].lineNumber}`} class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
+                    {#each line as item (item.itemNumber)}
+                        <ChordLineItem item={item} onclick={onclick} />
+                    {/each}
+                </div>
+            {/if}
         {/each}
     </div>
 </div>
