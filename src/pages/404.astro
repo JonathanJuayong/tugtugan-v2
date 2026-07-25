@@ -1,0 +1,40 @@
+---
+import Body from "../layouts/Body.astro";
+import {getCollection} from "astro:content";
+import {getRandomSongs} from "../utils/songs.ts";
+import {PlayIcon} from "@lucide/svelte";
+
+const songs = await getCollection('songs');
+const numberOfSongs = 4
+const randomSongs = getRandomSongs(numberOfSongs, songs)
+const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
+    id,
+    title,
+    artist,
+}))
+---
+
+<Body title="Page not Found">
+    <div class="min-h-screen container narrow space-y-6">
+        <div class="">
+            <h1 class="preset-typo-title">Sorry!</h1>
+            <p>We couldn't find what you're looking for. Have a look at the other songs below instead:</p>
+        </div>
+        <div class="space-y-6 ">
+            <ul class="grid gap-4 sm:grid-cols-2">
+                {otherSongs.map(({id, title, artist}) => (
+                        <li class="bg-surface-950 card">
+                            <a class="px-4 py-2 flex items-center gap-2 anchor" href={`songs/${id}`}>
+                                <div class="overflow-hidden">
+                                    <p class="preset-typo-title truncate sm:max-w-[16ch] ">{title}</p>
+                                    <p class="preset-typo-subtitle truncate sm:max-w-[16ch]">{artist}</p>
+                                </div>
+                                <PlayIcon class="ml-auto" />
+                            </a>
+                        </li>
+                ))}
+            </ul>
+        </div>
+        <a class="anchor" href="/songs">...or view all songs</a>
+    </div>
+</Body>
