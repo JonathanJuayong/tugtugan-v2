@@ -59,12 +59,12 @@
 
 <ul class="space-y-6">
     {#each artists as artist (artist)}
-        <li class="card px-4 py-4 bg-surface-950">
+        <li class="card px-4 py-4 border border-b-surface-800 dark:border-0 dark:bg-surface-950">
             <p class="preset-typo-title pr-4 mb-1">{artist}</p>
-            <ul class="pl-4 border-l-2 border-l-surface-800 ">
+            <ul class="pl-4 border-l-2 border-l-surface-200 dark:border-l-surface-800 ">
                 {#each groupSongsByArtists()[artist] as {id, title}}
                     <li>
-                        <a class="anchor flex gap-2 items-center" href={`songs/${id}`}>
+                        <a class="anchor text-brand-contrast-light dark:anchor flex gap-2 items-center" href={`songs/${id}`}>
                             {title}
                             <SquareArrowOutUpRightIcon size={16}/>
                         </a>

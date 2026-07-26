@@ -40,14 +40,14 @@
     </label>
     <SegmentedControl value={viewBy} {onValueChange}>
         <SegmentedControl.Label>View by:</SegmentedControl.Label>
-        <SegmentedControl.Control class="bg-surface-950">
-            <SegmentedControl.Indicator/>
+        <SegmentedControl.Control class="dark:bg-surface-950 ">
+            <SegmentedControl.Indicator class="bg-brand-contrast-light dark:bg-surface-50"/>
             <SegmentedControl.Item value='Songs'>
-                <SegmentedControl.ItemText>Songs</SegmentedControl.ItemText>
+                <SegmentedControl.ItemText class=" ">Songs</SegmentedControl.ItemText>
                 <SegmentedControl.ItemHiddenInput/>
             </SegmentedControl.Item>
             <SegmentedControl.Item value='Artists'>
-                <SegmentedControl.ItemText>Artists</SegmentedControl.ItemText>
+                <SegmentedControl.ItemText class=" ">Artists</SegmentedControl.ItemText>
                 <SegmentedControl.ItemHiddenInput/>
             </SegmentedControl.Item>
         </SegmentedControl.Control>

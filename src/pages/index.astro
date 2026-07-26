@@ -30,11 +30,11 @@ const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
     <div class="space-y-6">
         <div class="flex justify-between items-baseline">
             <h2 class="preset-typo-body-2">Suggested Songs:</h2>
-            <a class="anchor text-xs" href="songs">View all Songs</a>
+            <a class="anchor font-black text-xs" href="songs">View all Songs</a>
         </div>
         <ul class="grid gap-4 sm:grid-cols-2">
             {otherSongs.map(({id, title, artist}) => (
-                    <li class="bg-surface-950 card">
+                    <li class="dark:bg-surface-950 dark:border-0 border-2 border-brand-contrast-light card">
                         <a class="px-4 py-2 flex items-center gap-2 anchor" href={`songs/${id}`}>
                             <div class="overflow-hidden">
                                 <p class="preset-typo-title truncate sm:max-w-[16ch] ">{title}</p>

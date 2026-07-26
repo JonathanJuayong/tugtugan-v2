@@ -23,7 +23,7 @@ const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
     <div class="space-y-6 ">
         <ul class="grid gap-4 sm:grid-cols-2">
             {otherSongs.map(({id, title, artist}) => (
-                    <li class="bg-surface-950 card">
+                    <li class="border border-b-surface-800 dark:border-0 dark:bg-surface-950 card">
                         <a class="px-4 py-2 flex items-center gap-2 anchor" href={`songs/${id}`}>
                             <div class="overflow-hidden">
                                 <p class="preset-typo-title truncate sm:max-w-[16ch] ">{title}</p>

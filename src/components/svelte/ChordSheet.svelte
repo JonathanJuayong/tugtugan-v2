@@ -70,7 +70,7 @@
         bind:currentHighlightedItem={currentHighlightedItem}
         bind:transposeLevel={transposeLevel}
         {lines}
-        classList="flex flex-wrap items-center justify-between sticky top-4 bg-surface-950 py-2 px-4 rounded-xl mb-6"
+        classList="flex flex-wrap items-center justify-between sticky top-4 border bg-surface-100 dark:border-0 dark:bg-surface-950 py-2 px-4 rounded-xl mb-6"
 />
 <div class="overflow-scroll">
     {#each lines as line}

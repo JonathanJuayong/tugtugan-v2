@@ -30,7 +30,7 @@ const songTitle = songs.find(song => song.id === pathnameSegments[1])?.data.titl
     <meta name="generator" content={Astro.generator}/>
     <title>{title}</title>
 </head>
-<body class="bg-linear-to-br from-surface-700  to-surface-900 min-h-screen">
+<body class="bg-linear-to-br dark:from-surface-700  dark:to-surface-900 min-h-screen">
 <header class="border-b border-surface-600 py-4 mb-4">
     <nav aria-label="main navigation" class="container narrow">
         <ul class="flex flex-wrap">
@@ -49,12 +49,12 @@ const songTitle = songs.find(song => song.id === pathnameSegments[1])?.data.titl
 <div class="container narrow pb-4">
     {pageIsViewSongs && (
             <ul class="flex gap-4 items-center-safe uppercase font-extralight text-xs">
-                <li><a class="anchor" href="/">Home</a></li>
+                <li><a class="anchor text-brand-contrast-light dark:text-brand-dark" href="/">Home</a></li>
                 <li>
                     <ChevronRightIcon size="10"/>
                 </li>
                 {pathnameSegments.length > 1 ?
-                        <li><a class="anchor" href="/songs">Songs</a></li> :
+                        <li><a class="anchor text-brand-contrast-light dark:text-brand-dark" href="/songs">Songs</a></li> :
                         <li><p>Songs</p></li>}
                 {(pageIsChords && pageIsViewSongs) &&
                         <li>

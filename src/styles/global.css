@@ -24,7 +24,7 @@
 .preset-typo-caption,
 .preset-typo-menu,
 .preset-typo-button {
-    color: var(--typo-heading--color-light);
+    color: var(--color-surface-500);
     font-family: var(--typo-heading--font-family), serif;
     font-weight: var(--typo-heading--font-weight);
     @variant dark {
@@ -38,7 +38,7 @@
 .preset-typo-caption,
 .preset-typo-menu,
 .preset-typo-button {
-    color: var(--typo-heading--color-light);
+    color: var(--color-surface-500);
     @variant dark {
         color: var(--typo-heading--color-dark);
     }
