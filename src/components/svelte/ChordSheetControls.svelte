@@ -1,6 +1,7 @@
 <script lang="ts">
     import {ChevronLeftIcon, ChevronRightIcon, MinusIcon, PlusIcon} from "@lucide/svelte";
     import type {ChordItem} from "../../utils/types.ts";
+
     interface Props {
         currentHighlightedItem: {
             line: number
@@ -102,6 +103,7 @@
     }
 
     const MUSICAL_NOTES = 12
+
     function transposeUp() {
         if (transposeLevel === MUSICAL_NOTES - 1) {
             return transposeLevel = 0
@@ -120,22 +122,25 @@
 <div class={classList}>
     <div class="flex items-center gap-2">
         <p class="preset-typo-caption uppercase hidden sm:block">Transpose Song: </p>
-        <button onclick={transposeDown} title="Transpose Down" aria-label="Transpose Down" class="btn btn-icon-2xl cursor-pointer">
-            <MinusIcon />
+        <button onclick={transposeDown} title="Transpose Down" aria-label="Transpose Down"
+                class="btn btn-icon-2xl cursor-pointer">
+            <MinusIcon/>
         </button>
         <p>{transposeLevel}</p>
-        <button onclick={transposeUp} title="Transpose Up" aria-label="Transpose Up" class="btn btn-icon-2xl cursor-pointer">
-            <PlusIcon />
+        <button onclick={transposeUp} title="Transpose Up" aria-label="Transpose Up"
+                class="btn btn-icon-2xl cursor-pointer">
+            <PlusIcon/>
         </button>
     </div>
     <span class="vr block sm:hidden"></span>
     <div class="flex items-center gap-2">
         <p class="preset-typo-caption uppercase hidden sm:block">Navigate: </p>
-        <button onclick={previousItem} title="Previous Item" aria-label="Previous Item" class="btn btn-icon-2xl cursor-pointer">
-            <ChevronLeftIcon />
+        <button onclick={previousItem} title="Previous Item" aria-label="Previous Item"
+                class="btn btn-icon-2xl cursor-pointer">
+            <ChevronLeftIcon/>
         </button>
         <button onclick={nextItem} title="Next Item" aria-label="Next Item" class="btn btn-icon-2xl cursor-pointer">
-            <ChevronRightIcon />
+            <ChevronRightIcon/>
         </button>
     </div>
 </div>

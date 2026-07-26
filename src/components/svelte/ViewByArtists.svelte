@@ -31,7 +31,7 @@
                 ...previousValue,
                 [artist]: [...previousValue[artist], songLink],
             }
-        }, {} as Record<string, {title: string, id: string}[]>)
+        }, {} as Record<string, { title: string, id: string }[]>)
     })
 
     let groupSongsByArtists = () => {
@@ -52,7 +52,7 @@
                 ...previousValue,
                 [artist]: [...previousValue[artist], songLink],
             }
-        }, {} as Record<string, {title: string, id: string}[]>)
+        }, {} as Record<string, { title: string, id: string }[]>)
     }
     let artists = $derived(Object.keys(groupedByArtists).toSorted())
 </script>
@@ -66,7 +66,7 @@
                     <li>
                         <a class="anchor flex gap-2 items-center" href={`songs/${id}`}>
                             {title}
-                            <SquareArrowOutUpRightIcon size={16} />
+                            <SquareArrowOutUpRightIcon size={16}/>
                         </a>
                     </li>
                 {/each}

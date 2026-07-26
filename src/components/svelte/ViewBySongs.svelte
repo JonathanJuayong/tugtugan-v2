@@ -1,5 +1,6 @@
 <script lang="ts">
     import {PlayIcon} from "@lucide/svelte";
+
     interface Props {
         songs: {
             id: string;
@@ -8,7 +9,7 @@
         }[]
     }
 
-    let { songs }: Props = $props()
+    let {songs}: Props = $props()
 </script>
 
 <ul class="card divide-y divide-surface-800 bg-surface-950">
@@ -23,7 +24,7 @@
                         {song.artist}
                     </p>
                 </div>
-                <PlayIcon class="ml-auto" />
+                <PlayIcon class="ml-auto"/>
             </a>
         </li>
     {/each}

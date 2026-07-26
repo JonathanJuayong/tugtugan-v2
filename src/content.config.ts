@@ -19,8 +19,8 @@ const songs = defineCollection({
         }
     }),
     schema: z.object({
-       title: z.string(),
-       artist: z.string()
+        title: z.string(),
+        artist: z.string()
     })
 })
 

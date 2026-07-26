@@ -15,7 +15,7 @@ export function subscribeToSong(callback: (newValue: Readonly<Song> | null, oldV
     $chordText.subscribe(callback)
 }
 
-const $highlightedItem = atom<{line: number | null, item: number | null}>({
+const $highlightedItem = atom<{ line: number | null, item: number | null }>({
     line: null,
     item: null,
 })
@@ -29,6 +29,9 @@ export function getCurrentHighlightedItem() {
     return $highlightedItem.get()
 }
 
-export function subscribeToHighlightedItem(callback: (newValue: Readonly<{line: number | null, item: number | null}>, oldValue?: Readonly<{line: number | null, item: number | null}>) => void) {
+export function subscribeToHighlightedItem(callback: (newValue: Readonly<{
+    line: number | null,
+    item: number | null
+}>, oldValue?: Readonly<{ line: number | null, item: number | null }>) => void) {
     return $highlightedItem.subscribe(callback)
 }

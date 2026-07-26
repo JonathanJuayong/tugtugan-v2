@@ -4,7 +4,7 @@
     import type {ChordItem} from "../../utils/types.ts";
     import ChordSheetControls from "./ChordSheetControls.svelte";
 
-    let { chords }: { chords: string } = $props()
+    let {chords}: { chords: string } = $props()
     let currentHighlightedItem = $state({
         line: -1,
         item: -1
@@ -67,17 +67,18 @@
 </script>
 
 <ChordSheetControls
-    bind:currentHighlightedItem={currentHighlightedItem}
-    bind:transposeLevel={transposeLevel}
-    {lines}
-    classList="flex flex-wrap items-center justify-between sticky top-4 bg-surface-950 py-2 px-4 rounded-xl mb-6"
+        bind:currentHighlightedItem={currentHighlightedItem}
+        bind:transposeLevel={transposeLevel}
+        {lines}
+        classList="flex flex-wrap items-center justify-between sticky top-4 bg-surface-950 py-2 px-4 rounded-xl mb-6"
 />
 <div class="overflow-scroll">
     {#each lines as line}
         {#if line.length > 0}
-            <div id={`${line[0].lineNumber}`} class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
+            <div id={`${line[0].lineNumber}`}
+                 class="flex flex-wrap justify-items-start align-text-bottom gap-1 text-xs">
                 {#each line as item (item.itemNumber)}
-                    <ChordSheetLineItem {item} bind:currentHighlightedItem={currentHighlightedItem} />
+                    <ChordSheetLineItem {item} bind:currentHighlightedItem={currentHighlightedItem}/>
                 {/each}
             </div>
         {/if}

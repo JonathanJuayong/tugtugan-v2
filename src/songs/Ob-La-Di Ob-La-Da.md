@@ -3,6 +3,7 @@ artist: The Beatles
 title: Ob-La-Di Ob-La-Da
 dg-publish: true
 ---
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_J9NpHKrKMw?si=g40t9vAiuMZYqE6V" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ```

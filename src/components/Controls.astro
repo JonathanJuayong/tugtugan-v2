@@ -40,11 +40,11 @@
             const transposed = song?.transposeUp()!
             count = (count + 1) % MUSICAL_TONES
             setSong(transposed)
-        } else if(button.dataset.action === 'minus') {
+        } else if (button.dataset.action === 'minus') {
             const transposed = song?.transposeDown()!
             count = (count - 1) % MUSICAL_TONES
             setSong(transposed)
-        } else if(button.dataset.action === 'previous') {
+        } else if (button.dataset.action === 'previous') {
             // no highlighted item yet
             if (!line || !item) return
 
@@ -62,7 +62,7 @@
 
             // highlight previous item in current line
             setHighlightedItem(line, item - 1)
-        } else if(button.dataset.action === 'next') {
+        } else if (button.dataset.action === 'next') {
             // no highlighted item yet
             if (!line || !item) return
 

@@ -30,17 +30,17 @@ const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
 }))
 ---
 <Body title={song.data.title}>
-    <main class="container narrow space-y-6 relative">
-        <section class="video">
-            <YoutubeEmbed url={youtubeUrl}/>
-            <h2 class="preset-typo-headline">{song.data.title}</h2>
-            <p class="preset-typo-subtitle">{song.data.artist}</p>
-        </section>
-        <div class="mb-40">
-            <ChordSheet client:load {chords}/>
-        </div>
-        <aside class="suggested min-h-screen pt-6">
-            <SuggestedSongs songs={otherSongs} />
-        </aside>
-    </main>
+<main class="container narrow space-y-6 relative">
+    <section class="video">
+        <YoutubeEmbed url={youtubeUrl}/>
+        <h2 class="preset-typo-headline">{song.data.title}</h2>
+        <p class="preset-typo-subtitle">{song.data.artist}</p>
+    </section>
+    <div class="mb-40">
+        <ChordSheet client:load {chords}/>
+    </div>
+    <aside class="suggested min-h-screen pt-6">
+        <SuggestedSongs songs={otherSongs}/>
+    </aside>
+</main>
 </Body>

@@ -8,6 +8,7 @@
             item: number
         }
     }
+
     let {item, currentHighlightedItem = $bindable()}: Props = $props()
     const id = $derived(`${item.lineNumber}-${item.itemNumber}`)
 
@@ -46,11 +47,14 @@
 
     </pre>
 {:else if item.chords === '' && item.lyrics.length > 0}
-    <pre class={["grid content-end transition-all", item.isHighlighted ? highlight : '']} {id}><button {onclick} class={"cursor-pointer"}>{item.lyrics}</button></pre>
+    <pre class={["grid content-end transition-all", item.isHighlighted ? highlight : '']} {id}><button {onclick}
+                                                                                                       class={"cursor-pointer"}>{item.lyrics}</button></pre>
 {:else if item.lyrics === '' && item.chords.length > 0}
-    <pre data-chord={item.chords} class={["grid content-start transition-all", item.isHighlighted ? highlight : '']} {id}><button {onclick} class="cursor-pointer">{item.chords}</button></pre>
+    <pre data-chord={item.chords} class={["grid content-start transition-all", item.isHighlighted ? highlight : '']}
+         {id}><button {onclick} class="cursor-pointer">{item.chords}</button></pre>
 {:else}
-    <pre class={["transition-all", item.isHighlighted ? highlight : '']} data-chord={item.chords} {id}><button {onclick} class="grid whitespace-nowrap cursor-pointer">
+    <pre class={["transition-all", item.isHighlighted ? highlight : '']} data-chord={item.chords} {id}><button {onclick}
+                                                                                                               class="grid whitespace-nowrap cursor-pointer">
         <span>{item.chords}</span>
         <span>{item.lyrics}</span>
     </button></pre>

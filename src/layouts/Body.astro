@@ -17,7 +17,6 @@ const pageIsChords = pathnameSegments[1]?.includes("-")
 const songs = await getCollection('songs')
 
 const songTitle = songs.find(song => song.id === pathnameSegments[1])?.data.title
-
 ---
 
 <html data-theme="vintage" lang="en">
@@ -41,7 +40,7 @@ const songTitle = songs.find(song => song.id === pathnameSegments[1])?.data.titl
             <li class="ml-auto font-light">
                 <a class="btn btn-xs preset-filled-brand" href="/songs">
                     View Songs
-                    <PlayIcon />
+                    <PlayIcon/>
                 </a>
             </li>
         </ul>
@@ -51,10 +50,18 @@ const songTitle = songs.find(song => song.id === pathnameSegments[1])?.data.titl
     {pageIsViewSongs && (
             <ul class="flex gap-4 items-center-safe uppercase font-extralight text-xs">
                 <li><a class="anchor" href="/">Home</a></li>
-                <li><ChevronRightIcon size="10" /></li>
-                {pathnameSegments.length > 1 ? <li><a class="anchor" href="/songs">Songs</a></li> : <li><p>Songs</p></li>}
-                {(pageIsChords && pageIsViewSongs) && <li><ChevronRightIcon size="10" /></li> }
-                {(pageIsChords && pageIsViewSongs) && <li><p class="font-bold">{songTitle}</p></li>}
+                <li>
+                    <ChevronRightIcon size="10"/>
+                </li>
+                {pathnameSegments.length > 1 ?
+                        <li><a class="anchor" href="/songs">Songs</a></li> :
+                        <li><p>Songs</p></li>}
+                {(pageIsChords && pageIsViewSongs) &&
+                        <li>
+                            <ChevronRightIcon size="10"/>
+                        </li>}
+                {(pageIsChords && pageIsViewSongs) &&
+                        <li><p class="font-bold">{songTitle}</p></li>}
             </ul>
     )}
 </div>
