@@ -1,0 +1,201 @@
+{
+  "main": {
+    "id": "844ce3cb1526add9",
+    "type": "split",
+    "children": [
+      {
+        "id": "ef511109b75a349a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "34ee358a477412eb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "You're a God.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "You're a God"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "96a266fde3e8bb90",
+    "type": "split",
+    "children": [
+      {
+        "id": "873f5cfd6ab99f83",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6b84fd33553db229",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "806b14a9a1de9b54",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "beb97e3cfd3b9695",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "571f84bcdfab1df3",
+    "type": "split",
+    "children": [
+      {
+        "id": "e474e89c87d3217f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "23f0e80532088c4a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "You're a God.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for You're a God"
+            }
+          },
+          {
+            "id": "3c61665e16b5e28d",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "You're a God.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from You're a God"
+            }
+          },
+          {
+            "id": "a49c71f3eaa512c0",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "6f62791f9b85cac3",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "027b04c93e335fa5",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "You're a God.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of You're a God"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "34ee358a477412eb",
+  "lastOpenFiles": [
+    "You Give Love A Bad Name.md",
+    "With Or Without You.md",
+    "When I Look At You.md",
+    "Take on Me.md",
+    "Till They Take My Heart Away.md",
+    "Sharing The Night Together.md",
+    "Somewhere Only We Know.md",
+    "You're a God.md",
+    "Tuloy Pa Rin Ako.md",
+    "Aint It Fun.md",
+    "Ang Huling El Bimbo.md",
+    "Babaero.md"
+  ]
+}
