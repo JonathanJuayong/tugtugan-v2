@@ -9,8 +9,7 @@
         line: -1,
         item: -1
     })
-
-    let isGuitarActive = $state(false)
+    
     let transposeLevel = $state(0)
 
     let song = $derived.by(() => {
