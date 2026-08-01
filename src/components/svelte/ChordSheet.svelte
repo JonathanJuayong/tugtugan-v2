@@ -3,7 +3,6 @@
     import ChordSheetLineItem from "./ChordSheetLineItem.svelte";
     import type {ChordItem} from "../../utils/types.ts";
     import ChordSheetControls from "./ChordSheetControls.svelte";
-    import ChordSheetInstrumentGuitar from "./ChordSheetInstrumentGuitar.svelte";
 
     let {chords}: { chords: string } = $props()
     let currentHighlightedItem = $state({
