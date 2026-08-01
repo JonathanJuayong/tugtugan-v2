@@ -3,6 +3,7 @@
     import ChordSheetLineItem from "./ChordSheetLineItem.svelte";
     import type {ChordItem} from "../../utils/types.ts";
     import ChordSheetControls from "./ChordSheetControls.svelte";
+    import ChordSheetInstrumentGuitar from "./ChordSheetInstrumentGuitar.svelte";
 
     let {chords}: { chords: string } = $props()
     let currentHighlightedItem = $state({
@@ -10,6 +11,7 @@
         item: -1
     })
 
+    let isGuitarActive = $state(false)
     let transposeLevel = $state(0)
 
     let song = $derived.by(() => {
@@ -51,6 +53,13 @@
 
     })
 
+    let currentChord = $derived.by(() => {
+        const {line, item} = currentHighlightedItem
+        if (line === -1) return null
+        const chordItem = lines[line][item]
+        return chordItem.chords
+    })
+
     $effect(() => {
         const {line, item} = currentHighlightedItem
         const highlightedElement = document.getElementById(`${line}-${item}`)
@@ -69,6 +78,7 @@
 <ChordSheetControls
         bind:currentHighlightedItem={currentHighlightedItem}
         bind:transposeLevel={transposeLevel}
+        {currentChord}
         {lines}
         classList="flex flex-wrap items-center justify-between sticky top-4 border bg-surface-100 dark:border-0 dark:bg-surface-950 py-2 px-4 rounded-xl mb-6"
 />

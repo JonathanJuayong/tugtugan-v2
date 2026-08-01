@@ -1,6 +1,7 @@
 <script lang="ts">
-    import {ChevronLeftIcon, ChevronRightIcon, MinusIcon, PlusIcon} from "@lucide/svelte";
+    import {ChevronLeftIcon, ChevronRightIcon, MinusIcon, PlusIcon, GuitarIcon} from "@lucide/svelte";
     import type {ChordItem} from "../../utils/types.ts";
+    import ChordSheetInstrumentGuitar from "./ChordSheetInstrumentGuitar.svelte";
 
     interface Props {
         currentHighlightedItem: {
@@ -10,14 +11,18 @@
         transposeLevel: number
         lines: ChordItem[][]
         classList?: string
+        currentChord: string | null
     }
 
     let {
         currentHighlightedItem = $bindable(),
         transposeLevel = $bindable(),
         lines,
-        classList = ""
+        classList = "",
+        currentChord
     }: Props = $props()
+
+    let isGuitarActive = $state(false)
 
     function previousItem() {
         const {line, item} = currentHighlightedItem
@@ -117,6 +122,10 @@
         }
         transposeLevel -= 1
     }
+
+    function toggleGuitar() {
+        isGuitarActive = !isGuitarActive
+    }
 </script>
 
 <div class={classList}>
@@ -143,4 +152,24 @@
             <ChevronRightIcon/>
         </button>
     </div>
+    <span class="vr block sm:hidden"></span>
+    <button onclick={toggleGuitar} class="btn btn-icon-2xl cursor-pointer">
+        <GuitarIcon fill={isGuitarActive ? "white" : "none"}/>
+    </button>
 </div>
+
+{#if isGuitarActive}
+    <div class="fixed bottom-10 left-0 right-0 container narrow card py-4 bg-surface-100 border-2 dark:border-0 dark:bg-surface-contrast-dark touch-none">
+        <ChordSheetInstrumentGuitar {currentChord} />
+        <div class="flex justify-between items-center gap-2">
+            <button onclick={previousItem} title="Previous Item" aria-label="Previous Item"
+                    class="btn btn-icon-2xl cursor-pointer">
+                <ChevronLeftIcon/>
+            </button>
+            <p>{currentChord ? currentChord : "No Chord Selected"}</p>
+            <button onclick={nextItem} title="Next Item" aria-label="Next Item" class="btn btn-icon-2xl cursor-pointer">
+                <ChevronRightIcon/>
+            </button>
+        </div>
+    </div>
+{/if}

@@ -18,15 +18,18 @@
     "@lucide/svelte": "^1.25.0",
     "@skeletonlabs/skeleton-svelte": "^5.0.0",
     "@tailwindcss/vite": "^4.3.1",
+    "@tombatossals/chords-db": "^0.5.1",
     "astro": "^7.0.2",
     "chordsheetjs": "^15.5.2",
     "nanostores": "^1.4.0",
     "sharp": "^0.35.3",
     "svelte": "^5.56.6",
     "tailwindcss": "^4.3.1",
+    "tone": "^15.1.22",
     "typescript": "^6.0.3"
   },
   "devDependencies": {
-    "@skeletonlabs/skeleton": "^5.0.0"
+    "@skeletonlabs/skeleton": "^5.0.0",
+    "tonal": "^6.4.3"
   }
 }

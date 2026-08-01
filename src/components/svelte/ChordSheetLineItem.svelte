@@ -24,7 +24,6 @@
         const [newLine, newItem] = preElement.id.split('-').map((id) => parseInt(id))
         const {line, item} = currentHighlightedItem
 
-        console.log({line, item, newLine, newItem})
         const isSameItem = line === newLine && item === newItem;
         if (isSameItem) {
             currentHighlightedItem = {
