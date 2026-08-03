@@ -159,7 +159,7 @@
 </div>
 
 {#if isGuitarActive}
-    <div class="fixed bottom-10 left-0 right-0 container narrow card py-4 bg-surface-100 border-2 dark:border-0 dark:bg-surface-contrast-dark touch-none">
+    <div class="fixed bottom-0 left-0 right-0 rounded-b-none container narrow card py-4 bg-surface-100 border-2 dark:border-0 dark:bg-surface-contrast-dark touch-none">
         <ChordSheetInstrumentGuitar {currentChord} />
         <div class="flex justify-between items-center gap-2">
             <button onclick={previousItem} title="Previous Item" aria-label="Previous Item"
