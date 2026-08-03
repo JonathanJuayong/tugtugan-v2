@@ -17,10 +17,10 @@
         <li>
             <a class="px-4 py-2 flex items-center gap-2 anchor" href={`songs/${song.id}`}>
                 <div>
-                    <p class="preset-typo-title">
+                    <p class="preset-typo-title truncate max-w-[20ch] sm:max-w-fit">
                         {song.title}
                     </p>
-                    <p class="preset-typo-subtitle">
+                    <p class="preset-typo-subtitle truncate max-w-[20ch] sm:max-w-fit">
                         {song.artist}
                     </p>
                 </div>
