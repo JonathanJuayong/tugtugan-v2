@@ -166,7 +166,7 @@
                     class="btn btn-icon-2xl cursor-pointer">
                 <ChevronLeftIcon/>
             </button>
-            <p>{currentChord ? currentChord : "No Chord Selected"}</p>
+            <p class="font-black">{currentChord ? currentChord : "No Chord Selected"}</p>
             <button onclick={nextItem} title="Next Item" aria-label="Next Item" class="btn btn-icon-2xl cursor-pointer">
                 <ChevronRightIcon/>
             </button>
