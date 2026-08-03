@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {ChevronLeftIcon, ChevronRightIcon, MinusIcon, PlusIcon, GuitarIcon} from "@lucide/svelte";
+    import {ChevronLeftIcon, ChevronRightIcon, MinusIcon, PlusIcon, GuitarIcon, XIcon} from "@lucide/svelte";
     import type {ChordItem} from "../../utils/types.ts";
     import ChordSheetInstrumentGuitar from "./ChordSheetInstrumentGuitar.svelte";
 
@@ -152,14 +152,18 @@
             <ChevronRightIcon/>
         </button>
     </div>
-    <span class="vr block sm:hidden"></span>
-    <button onclick={toggleGuitar} class="btn btn-icon-2xl cursor-pointer">
-        <GuitarIcon fill={isGuitarActive ? "white" : "none"}/>
+    <button onclick={toggleGuitar} class="btn btn-icon-2xl p-3 border-2 border-brand-contrast-dark dark-border-4 bg-brand-light dark:bg-brand-dark rounded-full cursor-pointer fixed bottom-5 right-5 sm:relative sm:inset-0">
+        <GuitarIcon class="text-brand-contrast-dark"/>
     </button>
 </div>
 
+
+
 {#if isGuitarActive}
-    <div class="fixed bottom-0 left-0 right-0 rounded-b-none container narrow card py-4 bg-surface-100 border-2 dark:border-0 dark:bg-surface-contrast-dark touch-none">
+    <div class="fixed grid bottom-0 left-0 right-0 rounded-b-none container narrow card py-4 bg-surface-100 dark:border-0 dark:bg-surface-contrast-dark touch-none">
+        <button title="Close Guitar" aria-label="Close Guitar" class="btn btn-icon justify-self-end" onclick={() => isGuitarActive = false}>
+            <XIcon/>
+        </button>
         <ChordSheetInstrumentGuitar {currentChord} />
         <div class="flex justify-between items-center gap-2">
             <button onclick={previousItem} title="Previous Item" aria-label="Previous Item"
