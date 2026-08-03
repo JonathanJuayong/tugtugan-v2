@@ -102,13 +102,30 @@
 
 <div class="">
     <p class="text-center">Strum the strings below to play the guitar.</p>
-    <div {onpointerdown} {onpointerup} {onpointermove} role="application" class="flex justify-around mx-auto">
-        <p data-note="e" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-40"></span>  e</p>
-        <p data-note="a" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-40"></span>  a</p>
-        <p data-note="d" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-40"></span>  d</p>
-        <p data-note="g" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-40"></span>  g</p>
-        <p data-note="b" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-40"></span>  b</p>
-        <p data-note="E" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-40"></span>  E</p>
-    </div>
+
+    {#if isLoaded}
+        <div {onpointerdown} {onpointerup} {onpointermove} role="application" class="flex justify-around mx-auto">
+            <p data-note="e" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-20"></span>  e</p>
+            <p data-note="a" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-20"></span>  a</p>
+            <p data-note="d" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-20"></span>  d</p>
+            <p data-note="g" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-20"></span>  g</p>
+            <p data-note="b" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-20"></span>  b</p>
+            <p data-note="E" class="pt-6 px-2 grid place-items-center"><span class="outline-1 h-20"></span>  E</p>
+        </div>
+    {:else}
+        <div class="flex justify-center">
+            <Progress class="items-center w-fit" value={null}>
+                <Progress.Circle>
+                    <Progress.CircleTrack />
+                    <Progress.CircleRange />
+                </Progress.Circle>
+                <Progress.ValueText>
+                    <p>Loading guitar samples</p>
+                </Progress.ValueText>
+            </Progress>
+        </div>
+    {/if}
+
+
 </div>
 
