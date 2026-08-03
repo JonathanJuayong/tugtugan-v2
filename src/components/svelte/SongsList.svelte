@@ -65,34 +65,34 @@
 
 {#if viewBy === "Songs"}
     <ViewBySongs songs={paginatedItems} />
+    <div class="grid w-full place-items-center">
+        <Pagination siblingCount={0} count={displayedSongs.length} pageSize={PAGE_SIZE} {page} onPageChange={(e) => (page = e.page)}>
+            <Pagination.PrevTrigger>
+                <ArrowLeftIcon />
+            </Pagination.PrevTrigger>
+            <Pagination.Context>
+                {#snippet children(pagination)}
+                    <div class="flex flex-wrap gap-1 items-start justify-start">
+                        {#each pagination().pages as page, index (page)}
+                            {#if page.type === "page"}
+                                <Pagination.Item {...page}>
+                                    {page.value}
+                                </Pagination.Item>
+                            {:else}
+                                <Pagination.Ellipsis {index}>
+                                    &#8230;
+                                </Pagination.Ellipsis>
+                            {/if}
+                        {/each}
+                    </div>
+                {/snippet}
+            </Pagination.Context>
+            <Pagination.NextTrigger>
+                <ArrowRightIcon />
+            </Pagination.NextTrigger>
+        </Pagination>
+    </div>
 {:else if viewBy === "Artists"}
     <ViewByArtists songs={displayedSongs}/>
 {/if}
 
-<div class="grid w-full place-items-center">
-    <Pagination siblingCount={0} count={displayedSongs.length} pageSize={PAGE_SIZE} {page} onPageChange={(e) => (page = e.page)}>
-        <Pagination.PrevTrigger>
-            <ArrowLeftIcon />
-        </Pagination.PrevTrigger>
-        <Pagination.Context>
-            {#snippet children(pagination)}
-                <div class="flex flex-wrap gap-1 items-start justify-start">
-                    {#each pagination().pages as page, index (page)}
-                        {#if page.type === "page"}
-                            <Pagination.Item {...page}>
-                                {page.value}
-                            </Pagination.Item>
-                        {:else}
-                            <Pagination.Ellipsis {index}>
-                                &#8230;
-                            </Pagination.Ellipsis>
-                        {/if}
-                    {/each}
-                </div>
-            {/snippet}
-        </Pagination.Context>
-        <Pagination.NextTrigger>
-            <ArrowRightIcon />
-        </Pagination.NextTrigger>
-    </Pagination>
-</div>
