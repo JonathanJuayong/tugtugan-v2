@@ -24,7 +24,7 @@
 
     $inspect(chordMidNotes)
 
-    const VOICES_PER_NOTE = 12
+    const VOICES_PER_NOTE = 3
     let pools: Record<string, VoicePool> = {}
     onMount(() => {
 
