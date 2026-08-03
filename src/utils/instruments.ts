@@ -82,7 +82,7 @@ export function getMidiNotesFromChord(chord: string | null): typeof defaultOpenS
         replaceSharpSymbolFromChord(parsedChord) :
         rootString
     const chordQuality = parsedChord?.quality ?? ""
-    const chordExtension = parsedChord?.extensions ?? ""
+    const chordExtension = (parsedChord?.extensions ?? "").replace("M", "maj")
     const chordBass = parsedChord?.bass?.note
 
     if (root) {
