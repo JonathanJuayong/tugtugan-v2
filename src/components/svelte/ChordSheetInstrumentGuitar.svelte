@@ -6,6 +6,7 @@
     } from "../../utils/instruments.ts";
     import * as Tone from "tone";
     import {onDestroy, onMount} from "svelte";
+    import { Progress } from '@skeletonlabs/skeleton-svelte';
 
     interface Props {
         currentChord: string | null
@@ -27,7 +28,6 @@
     const VOICES_PER_NOTE = 3
     let pools: Record<string, VoicePool> = {}
     onMount(() => {
-
         const context = new Tone.Context({latencyHint: "interactive", lookAhead: 0})
         Tone.setContext(context)
 
