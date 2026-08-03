@@ -46,13 +46,13 @@
 
     </pre>
 {:else if item.chords === '' && item.lyrics.length > 0}
-    <pre class={["grid content-end transition-all", item.isHighlighted ? highlight : '']} {id}><button {onclick}
+    <pre class={["grid content-end transition-all scroll-mb-50", item.isHighlighted ? highlight : '']} {id}><button {onclick}
                                                                                                        class={"cursor-pointer"}>{item.lyrics}</button></pre>
 {:else if item.lyrics === '' && item.chords.length > 0}
-    <pre data-chord={item.chords} class={["grid content-start transition-all", item.isHighlighted ? highlight : '']}
+    <pre data-chord={item.chords} class={["grid content-start transition-all scroll-mb-50", item.isHighlighted ? highlight : '']}
          {id}><button {onclick} class="cursor-pointer">{item.chords}</button></pre>
 {:else}
-    <pre class={["transition-all", item.isHighlighted ? highlight : '']} data-chord={item.chords} {id}><button {onclick}
+    <pre class={["transition-all scroll-mb-50", item.isHighlighted ? highlight : '']} data-chord={item.chords} {id}><button {onclick}
                                                                                                                class="grid whitespace-nowrap cursor-pointer">
         <span>{item.chords}</span>
         <span>{item.lyrics}</span>
