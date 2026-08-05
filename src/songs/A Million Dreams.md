@@ -1,0 +1,142 @@
+---
+artist: The Greatest Showman OST
+title: A Million Dreams
+dg-publish: true
+---
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/pSQk-4fddDI?si=nzq6VfwtHcYMQDBa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+```
+[Intro]
+G   D/F#   Em   C
+G   D/F#   C    C
+ 
+[Verse 1]
+G          D/F#           Em
+I close my eyes and I can see
+               C              G
+A world that's waiting up for me
+       D/F#    C
+That I call my own
+G            D/F#              Em
+ Through the dark, through the door
+              C               G
+Through where no one's been before
+        D/F#      C
+But it feels like home
+ 
+[Pre-Chorus]
+D/F#                    Em     D          C
+They can say, they can say it all sounds crazy
+D/F#                    Em       D       C
+They can say, they can say I've lost my mind
+D/F#                    Em      D       C
+I don't care, I don't care, so call me crazy
+D/F#               Em        D     C
+We can live in a world that we design
+ 
+
+Page 1/3
+
+[Chorus]
+       G
+'Cause every night I lie in bed
+    D/F#
+The brightest colors fill my head
+  Am                              C
+A million dreams are keeping me awake
+  G
+I think of what the world could be
+  D/F#
+A vision of the one I see
+  Am                                C
+A million dreams is all it's gonna take
+ N.C.
+A million dreams for the world we're gonna make
+ 
+[Link]
+G   D/F#   Em   C
+ 
+[Verse 2]
+G         D/F#         Em7
+There's a house we can build
+      C              G
+Every room inside is filled
+     D/F#            C
+With things from far away
+G            D/F#     Em7
+ The special things I compile
+         C                 G
+Each one there to make you smile
+     D/F#  C
+On a rainy day
+ 
+[Pre-Chorus]
+D/F#                    Em     D          C
+ They can say, they can say it all sounds crazy
+D/F#                    Em       D        C
+ They can say, they can say we've lost our minds
+D/F#                    Em         D       C
+ I don't care, I don't care if they call us crazy
+D/F#          Em         D    C
+ Runaway to a world that we design
+ 
+[Chorus]
+G
+Every night I lie in bed
+    D/F#
+The brightest colors fill my head
+  Am                          C
+A million dreams keeping me awake
+  G
+I think of what the world could be
+  D/F#
+A vision of the one I see
+  Am                                C
+A million dreams is all it's gonna take
+
+Page 2/3
+
+N.C.
+A million dreams for the world we're gonna make
+ 
+[Bridge]
+Em        B         G
+ However big, however small
+          A          C
+Let me be part of it all
+                       G G D/F# B
+Share your dreams with me
+Em          B                G
+ You may be right, you may be wrong
+                    A         C
+But say that you'll bring me along
+C                 G
+To the world you see
+G                       Am
+To the world I close my eyes to see
+           D
+I close my eyes to see
+ 
+[Chorus]
+G
+Every night I lie in bed
+    D/F#
+The brightest colors fill my head
+  Am
+A million dreams are keeping me awake
+  C
+A million dreams, a million dreams
+  G
+I think of what the world could be
+  D/F#
+A vision of the one I see
+  Am                                C
+A million dreams is all it's gonna take
+  C                                        G D/F# Em C
+A million dreams for the world we're gonna make
+ 
+[Outro]
+N.C.
+For the world we're gonna make
+```
