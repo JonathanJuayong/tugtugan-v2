@@ -2,6 +2,10 @@
 artist: Guns N' Roses
 title: Sweet Child O Mine
 dg-publish: true
+tags:
+  - male
+  - rock
+  - upbeat
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/qoflJn7zkFM?si=5tvhrzr7pEOmsQCt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

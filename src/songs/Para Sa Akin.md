@@ -2,6 +2,11 @@
 artist: Sitti
 title: Para Sa Akin
 dg-publish: true
+tags:
+  - female
+  - bossa
+  - mellow
+  - opm
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rqyf_niyO9k?si=Gi5Ei5HnNYdufY4e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -2,6 +2,11 @@
 artist: Cup of Joe
 title: Multo
 dg-publish: true
+tags:
+  - male
+  - pop
+  - mellow
+  - opm
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Rht8rS4cR1s?si=8kkxbYzN3EpBSwNS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

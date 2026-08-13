@@ -2,6 +2,13 @@
 artist: Sunkissed Lola
 title: Pasilyo
 dg-publish: true
+tags:
+  - male
+  - pop
+  - blues
+  - jazz
+  - opm
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XToA-1dZYWA?si=fp_Uide6LGHhYusJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

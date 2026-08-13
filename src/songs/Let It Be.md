@@ -2,6 +2,11 @@
 artist: The Beatles
 title: Let It Be
 dg-publish: true
+tags:
+  - male
+  - rock
+  - classic
+  - piano
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/QDYfEBY9NM4?si=nE-vgR8nrTs9dnBl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

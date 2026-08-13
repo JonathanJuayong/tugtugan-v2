@@ -2,6 +2,12 @@
 artist: Frio
 title: Hanggang Dito Na Lang
 dg-publish: true
+tags:
+  - male
+  - rock
+  - pop
+  - upbeat
+  - opm
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y50i8YyOxJs?si=_bRwwfGuYiJpAseq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

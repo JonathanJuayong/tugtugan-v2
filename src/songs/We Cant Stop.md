@@ -2,6 +2,10 @@
 artist: Miley Cyrus
 title: We Cant Stop
 dg-publish: true
+tags:
+  - female
+  - pop
+  - upbeat
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LrUvu1mlWco?si=Jzpu6I0sVHPN_yRX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

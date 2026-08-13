@@ -2,6 +2,11 @@
 artist: Doja Cat feat. SZA
 title: Kiss Me More
 dg-publish: true
+tags:
+  - female
+  - pop
+  - rnb
+  - upbeat
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0EVVKs6DQLo?si=z6d_DbKflYsc2aXq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

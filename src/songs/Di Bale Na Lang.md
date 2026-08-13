@@ -2,6 +2,12 @@
 artist: Gary Valenciano
 title: Di Bale Na Lang
 dg-publish: true
+tags:
+  - opm
+  - male
+  - pop
+  - upbeat
+  - classic
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/y7tN4m7yLLc?si=6wJ1y5SDvIwPoXbA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

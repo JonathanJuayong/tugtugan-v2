@@ -2,6 +2,10 @@
 artist: Restless Heart
 title: When She Cries
 dg-publish: true
+tags:
+  - male
+  - pop
+  - rock
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sSN4ybN0jzg?si=XTRlY52QMVIIKidi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

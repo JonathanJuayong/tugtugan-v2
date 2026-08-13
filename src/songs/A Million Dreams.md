@@ -2,6 +2,10 @@
 artist: The Greatest Showman OST
 title: A Million Dreams
 dg-publish: true
+tags:
+  - male
+  - female
+  - piano
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pSQk-4fddDI?si=nzq6VfwtHcYMQDBa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

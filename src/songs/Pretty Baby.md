@@ -2,6 +2,10 @@
 artist: Vanessa Carlton
 title: Pretty Baby
 dg-publish: true
+tags:
+  - female
+  - pop
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cDOcNN48cs8?si=hLCOmQ3a1FAk662d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

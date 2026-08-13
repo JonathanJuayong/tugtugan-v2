@@ -2,6 +2,11 @@
 artist: Phil Collins
 title: One More Night
 dg-publish: true
+tags:
+  - male
+  - pop
+  - classic
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pzKxJhPBCwM?si=XKu1BT_EcQGhC0Bw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

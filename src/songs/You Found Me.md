@@ -2,6 +2,10 @@
 artist: The Fray
 title: You Found Me
 dg-publish: true
+tags:
+  - male
+  - pop
+  - rock
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ie1s-nGJUdQ?si=yuD_QQCLfWuy7EiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -2,6 +2,11 @@
 artist: Matchbox Twenty
 title: Unwell
 dg-publish: true
+tags:
+  - male
+  - pop
+  - rock
+  - upbeat
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6jP7WcO-b4U?si=8AeQcaIjjfkd3hrL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

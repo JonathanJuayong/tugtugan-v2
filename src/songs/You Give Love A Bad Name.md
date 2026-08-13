@@ -2,6 +2,12 @@
 artist: Bon Jovi
 title: You Give Love A Bad Name
 dg-publish: true
+tags:
+  - male
+  - pop
+  - rock
+  - upbeat
+  - classic
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/pcWz8d_TI8A?si=LP9UqohRuxtD1KyE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

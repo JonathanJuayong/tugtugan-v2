@@ -2,6 +2,12 @@
 artist: Side A
 title: Tuloy Pa Rin Ako
 dg-publish: true
+tags:
+  - male
+  - pop
+  - rock
+  - upbeat
+  - opm
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/P5mSqsnDbgk?si=tTKgw2XJJ_nDJWXJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

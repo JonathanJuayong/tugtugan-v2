@@ -2,6 +2,11 @@
 artist: The Cardigans
 title: Lovefool
 dg-publish: true
+tags:
+  - female
+  - upbeat
+  - funk
+  - pop
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FOLJQnxfC-c?si=WJ-1t0VeGsBV-PEj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

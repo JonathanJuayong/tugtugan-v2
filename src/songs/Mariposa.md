@@ -2,6 +2,11 @@
 artist: Peach Tree Rascals
 title: Mariposa
 dg-publish: true
+tags:
+  - male
+  - pop
+  - jazz
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/U3RjdVmny6A?si=F1qnnxAgHB2jFIvD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

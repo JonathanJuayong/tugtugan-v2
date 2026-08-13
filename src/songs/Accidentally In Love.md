@@ -2,6 +2,11 @@
 artist: Counting Crows
 title: Accidentally In Love
 dg-publish: true
+tags:
+  - male
+  - upbeat
+  - rock
+  - pop
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GEo7W-uJNkc?si=es4HM-pA8cOf4B9R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

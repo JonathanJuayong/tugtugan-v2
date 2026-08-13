@@ -2,6 +2,12 @@
 artist: Itchyworms
 title: Di Na Muli
 dg-publish: true
+tags:
+  - male
+  - pop
+  - rock
+  - mellow
+  - opm
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rgHHJkzn5TU?si=Zlv2i43gTMspho2e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

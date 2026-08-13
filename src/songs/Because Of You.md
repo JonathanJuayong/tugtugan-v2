@@ -2,6 +2,10 @@
 artist: Ne-Yo
 title: Because Of You
 dg-publish: true
+tags:
+  - male
+  - rnb
+  - hiphop
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/atz_aZA3rf0?si=UhRf29R2oKx6eujq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

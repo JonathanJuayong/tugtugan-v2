@@ -2,6 +2,10 @@
 artist: Harry Styles
 title: Adore You
 dg-publish: true
+tags:
+  - male
+  - pop
+  - upbeat
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VF-r5TtlT9w?si=ftJBjrE0ClkGfRyd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

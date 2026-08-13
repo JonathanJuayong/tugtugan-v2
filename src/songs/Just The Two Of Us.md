@@ -2,6 +2,11 @@
 artist: Grover Washington Jr.
 title: Just The Two Of Us
 dg-publish: true
+tags:
+  - male
+  - jazz
+  - mellow
+  - classic
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Uw5OLnN7UvM?si=Gvcb16EVSX6Ec5di" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

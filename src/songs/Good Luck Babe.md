@@ -2,6 +2,10 @@
 artist: Chapelle Roan
 title: Good Luck Babe
 dg-publish: true
+tags:
+  - female
+  - pop
+  - upbeat
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1RKqOmSkGgM?si=XCfura5KZOTH4TJl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

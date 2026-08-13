@@ -2,6 +2,11 @@
 artist: Miley Cyrus
 title: When I Look At You
 dg-publish: true
+tags:
+  - female
+  - pop
+  - ballad
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/G7lTGLPU-cM?si=brpb4-X6UkqFVnoB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

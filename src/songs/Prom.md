@@ -2,6 +2,12 @@
 artist: Sugarfree
 title: Prom
 dg-publish: true
+tags:
+  - male
+  - pop
+  - rock
+  - upbeat
+  - opm
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/iuZqraRSLaE?si=K-Md1hkoHf_dn3lq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

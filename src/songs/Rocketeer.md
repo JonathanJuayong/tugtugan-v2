@@ -2,6 +2,11 @@
 artist: Far East Movement
 title: Rocketeer
 dg-publish: true
+tags:
+  - male
+  - upbeat
+  - rnb
+  - hiphop
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/RcmKbTR--iA?si=nAZKsrir6MnAFPol" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -2,6 +2,11 @@
 artist: Third Eye Blind
 title: Semi-Charmed Life
 dg-publish: true
+tags:
+  - male
+  - rock
+  - pop
+  - upbeat
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WwwUeGXe2wo?si=bHn6QqtMoh_Jzh-Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

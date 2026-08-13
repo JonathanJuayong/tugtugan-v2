@@ -2,6 +2,11 @@
 artist: Jimmy Bondoc
 title: Let Me Be The One
 dg-publish: true
+tags:
+  - male
+  - opm
+  - piano
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yrFRypYaFm0?si=JBFTMMxGIuXZVw5r" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

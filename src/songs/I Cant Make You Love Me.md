@@ -2,6 +2,11 @@
 artist: Bonnie Raitt
 title: I Cant Make You Love Me
 dg-publish: true
+tags:
+  - female
+  - mellow
+  - blues
+  - piano
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/nW9Cu6GYqxo?si=2wzHrEyiBilTe1ZV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

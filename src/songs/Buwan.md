@@ -2,6 +2,11 @@
 artist: Juan Karlos
 title: Buwan
 dg-publish: true
+tags:
+  - male
+  - opm
+  - blues
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_qFQBfTIgbo?si=fQ0Yk04PxXO5LwkL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -2,6 +2,12 @@
 artist: South Border
 title: Ikaw Nga
 dg-publish: true
+tags:
+  - male
+  - opm
+  - pop
+  - ballad
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Jzd26Dpj3U0?si=UfZqGffnCUvn8Z0D" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

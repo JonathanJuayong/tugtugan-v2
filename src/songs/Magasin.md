@@ -2,6 +2,12 @@
 artist: Eraserheads
 title: Magasin
 dg-publish: true
+tags:
+  - male
+  - rock
+  - pop
+  - upbeat
+  - opm
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-8K2mfq9MrE?si=agNzIM7R-9L05QFu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

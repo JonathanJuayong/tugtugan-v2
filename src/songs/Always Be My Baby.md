@@ -2,6 +2,10 @@
 artist: David Cook
 title: Always Be My Baby
 dg-publish: true
+tags:
+  - male
+  - rock
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5n_uT2d8NkY?si=MylaUCww-bBrZQTq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

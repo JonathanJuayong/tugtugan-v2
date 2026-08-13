@@ -2,6 +2,12 @@
 artist: Phil Collins
 title: Against All Odds
 dg-publish: true
+tags:
+  - male
+  - mellow
+  - pop
+  - piano
+  - classic
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/UjDRcVJB-78?si=2_hMvkd2QeVUln1s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

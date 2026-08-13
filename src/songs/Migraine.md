@@ -2,6 +2,11 @@
 artist: Moonstar88
 title: Migraine
 dg-publish: true
+tags:
+  - opm
+  - female
+  - rock
+  - pop
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aJGgRlF0GA0?si=EQ8EXbRKaAmo_Wuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

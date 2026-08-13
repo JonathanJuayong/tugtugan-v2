@@ -2,6 +2,11 @@
 artist: Lady Gaga and Bruno Mars
 title: Die With A Smile
 dg-publish: true
+tags:
+  - male
+  - female
+  - pop
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/kPa7bsKwL-c?si=wA94Y34TeS8fBh8z" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

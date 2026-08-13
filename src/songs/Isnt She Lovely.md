@@ -2,6 +2,12 @@
 artist: Stevie Wonder
 title: Isnt She Lovely
 dg-publish: true
+tags:
+  - male
+  - pop
+  - jazz
+  - classic
+  - upbeat
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oE56g61mW44?si=1hMo19DrU6vISIua" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

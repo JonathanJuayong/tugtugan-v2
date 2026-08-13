@@ -2,6 +2,11 @@
 artist: Europe
 title: The Final Countdown
 dg-publish: true
+tags:
+  - male
+  - upbeat
+  - pop
+  - rock
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cZid3J36wH8?si=uKI9gCB86kbwm2xL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

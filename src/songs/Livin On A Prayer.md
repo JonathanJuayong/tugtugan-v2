@@ -2,6 +2,11 @@
 artist: Bon Jovi
 title: Livin On A Prayer
 dg-publish: true
+tags:
+  - male
+  - rock
+  - upbeat
+  - classic
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2ognf_oRQWM?si=btveNk6hD8KyggW3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

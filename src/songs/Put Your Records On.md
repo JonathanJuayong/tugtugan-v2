@@ -2,6 +2,10 @@
 artist: Corinne Bailey Rae
 title: Put Your Records On
 dg-publish: true
+tags:
+  - female
+  - pop
+  - mellow
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/rjOhZZyn30k?si=n9qFLfJdKSNRBpOX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

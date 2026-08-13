@@ -2,6 +2,11 @@
 artist: Guns N' Roses
 title: Knockin On Heavens Door
 dg-publish: true
+tags:
+  - male
+  - rock
+  - mellow
+  - classic
 ---
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MQK6jedRrlU?si=t4FdfeHh9f0qB-8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
