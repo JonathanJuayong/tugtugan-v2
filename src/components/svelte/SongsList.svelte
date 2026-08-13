@@ -10,16 +10,27 @@
             id: string;
             artist: string;
             title: string;
+            tags: string[];
         }[]
+        tags: Set<string>
     }
 
-    let {songs}: Props = $props()
+
+    let {songs, tags}: Props = $props()
     let search = $state('')
+    let activeTags: Set<string> = $state(new Set())
+    let inactiveTags = $derived(tags.difference(activeTags))
+    let taggedSongs = $derived.by(() => {
+        return songs.filter(song => {
+            const tagsArray = [...activeTags]
+            return tagsArray.every(tag => song.tags.includes(tag))
+        })
+    })
     let displayedSongs = $derived.by(() => {
         const query = search.toLowerCase().trim()
-        if (query === '') return songs
+        if (query === '') return taggedSongs
 
-        return songs.filter(song => {
+        return taggedSongs.filter(song => {
             const artist = song.artist.toLowerCase().trim()
             const title = song.title.toLowerCase().trim()
             return artist.includes(query) || title.includes(query)
@@ -38,6 +49,26 @@
         viewBy = target.value as "Songs" | "Artists"
     }
 
+    function activateTag(tag: string) {
+        return (e: Event) => {
+            e.preventDefault()
+            console.log("clicked ", tag)
+            page = 1
+            activeTags = new Set([...activeTags, tag])
+        }
+    }
+
+    function deactivateTag(tag: string) {
+        return (e: Event) => {
+            e.preventDefault()
+            console.log("clicked ", tag)
+            activeTags.delete(tag)
+            page = 1
+            activeTags = new Set([...activeTags])
+        }
+    }
+
+    $inspect(activeTags)
 </script>
 
 <form class="space-y-4">
@@ -46,6 +77,23 @@
         <input oninput={() => page = 1} bind:value={search} id="search" type="text" autocomplete="off"
                placeholder="Search for any artist or song" name="search" class="input"/>
     </label>
+    <section class="grid gap-4">
+        <h2 class="preset-typo-caption">Tags:</h2>
+        <ul class="flex gap-2 flex-wrap">
+            {#each inactiveTags as tag}
+                <li>
+                    <button onclick={activateTag(tag)} class="chip preset-outlined-brand">{tag}</button>
+                </li>
+            {/each}
+        </ul>
+        <ul class="flex gap-2 flex-wrap">
+            {#each activeTags as tag}
+                <li>
+                    <button onclick={deactivateTag(tag)} class="chip preset-filled">{tag}</button>
+                </li>
+            {/each}
+        </ul>
+    </section>
     <SegmentedControl value={viewBy} {onValueChange}>
         <SegmentedControl.Label>View by:</SegmentedControl.Label>
         <SegmentedControl.Control class="dark:bg-surface-950 ">

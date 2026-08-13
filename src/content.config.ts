@@ -20,7 +20,8 @@ const songs = defineCollection({
     }),
     schema: z.object({
         title: z.string(),
-        artist: z.string()
+        artist: z.string(),
+        tags: z.array(z.string())
     })
 })
 

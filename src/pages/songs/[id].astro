@@ -35,6 +35,9 @@ const otherSongs = randomSongs.map(({id, data: {title, artist,}}) => ({
         <YoutubeEmbed url={youtubeUrl}/>
         <h2 class="preset-typo-headline">{song.data.title}</h2>
         <p class="preset-typo-subtitle">{song.data.artist}</p>
+        <div class="flex gap-2 mt-4">
+            {song.data.tags.map((tag) => (<p class="chip preset-outlined">{tag}</p>))}
+        </div>
     </section>
     <div class="mb-40">
         <ChordSheet client:load {chords}/>

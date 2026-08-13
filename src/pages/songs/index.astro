@@ -7,12 +7,15 @@ const songsCollection = await getCollection('songs')
 const songs = songsCollection.map((song) => ({
     id: song.id,
     title: song.data.title,
-    artist: song.data.artist
+    artist: song.data.artist,
+    tags: song.data.tags,
 }))
+
+const tags = new Set(songsCollection.flatMap((song) => song.data.tags).toSorted())
 ---
 
 <Body title="Songs">
 <main class="container narrow grid items-start content-start gap-4 pb-10 min-h-screen">
-    <SongsList client:load songs={songs}/>
+    <SongsList client:load songs={songs} tags={tags}/>
 </main>
 </Body>
